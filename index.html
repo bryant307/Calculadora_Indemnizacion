@@ -5,308 +5,153 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Calculadora de prestaciones laborales · El Salvador</title>
-  <style>
-    :root {
-      --navy: #182052;
-      --gold: #b8892b;
-      --bg: #f3f4f8;
-      --card: #fff;
-      --ink: #1d2333;
-      --mut: #5d6579;
-      --line: #dfe2ec;
-      --err: #b3261e
-    }
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 
-    * {
-      box-sizing: border-box
-    }
 
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--ink);
-      font: 15px/1.5 "Segoe UI", system-ui, sans-serif
-    }
 
-    header {
-      background: var(--navy);
-      color: #fff;
-      padding: 22px 20px
-    }
-
-    header div {
-      max-width: 1100px;
-      margin: auto
-    }
-
-    h1 {
-      margin: 0 0 4px;
-      font-size: 1.5rem
-    }
-
-    header p {
-      margin: 0;
-      color: #c9cef0
-    }
-
-    main {
-      max-width: 1100px;
-      margin: auto;
-      padding: 20px;
-      display: grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 20px;
-      align-items: start
-    }
-
-    @media(max-width:860px) {
-      main {
-        grid-template-columns: 1fr
-      }
-    }
-
-    section.card {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-left: 4px solid var(--navy);
-      border-radius: 6px;
-      padding: 16px 18px;
-      margin-bottom: 16px
-    }
-
-    section.card h2 {
-      margin: 0 0 12px;
-      font-size: 1.05rem;
-      color: var(--navy)
-    }
-
-    .g {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px
-    }
-
-    .g .w {
-      grid-column: 1/-1
-    }
-
-    label {
-      display: block;
-      font-weight: 600;
-      font-size: .88rem;
-      margin-bottom: 3px
-    }
-
-    small {
-      color: var(--mut);
-      display: block;
-      margin-top: 2px;
-      font-size: .78rem
-    }
-
-    input,
-    select {
-      width: 100%;
-      padding: 8px 10px;
-      border: 1px solid #c5cadb;
-      border-radius: 4px;
-      font: inherit;
-      background: #fff
-    }
-
-    input:focus,
-    select:focus,
-    button:focus-visible {
-      outline: 2px solid var(--gold);
-      outline-offset: 1px
-    }
-
-    input:disabled {
-      background: #eef0f5
-    }
-
-    .opt {
-      display: flex;
-      gap: 8px;
-      align-items: center;
-      font-weight: 400;
-      margin: 0 0 10px
-    }
-
-    .opt input {
-      width: auto
-    }
-
-    .err {
-      color: var(--err);
-      font-weight: 600;
-      margin: 8px 0 0;
-      min-height: 1.2em
-    }
-
-    .btns {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap
-    }
-
-    button {
-      padding: 10px 18px;
-      border-radius: 4px;
-      border: 1px solid var(--navy);
-      font: inherit;
-      font-weight: 600;
-      cursor: pointer
-    }
-
-    .p {
-      background: var(--navy);
-      color: #fff
-    }
-
-    .s {
-      background: #fff;
-      color: var(--navy)
-    }
-
-    button:disabled {
-      opacity: .45;
-      cursor: not-allowed
-    }
-
-    #res {
-      position: sticky;
-      top: 12px
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse
-    }
-
-    td {
-      padding: 7px 0;
-      border-bottom: 1px solid var(--line);
-      vertical-align: top
-    }
-
-    td.m {
-      text-align: right;
-      white-space: nowrap;
-      font-variant-numeric: tabular-nums
-    }
-
-    td small {
-      margin: 0
-    }
-
-    tr.t td {
-      border-top: 2px solid var(--navy);
-      border-bottom: 0;
-      font-weight: 700;
-      font-size: 1.1rem;
-      color: var(--navy);
-      padding-top: 10px
-    }
-
-    tr.d td {
-      color: var(--mut)
-    }
-
-    tr.n td {
-      font-weight: 700;
-      font-size: 1.25rem;
-      color: #0f6b3a
-    }
-
-    .empty {
-      color: var(--mut);
-      margin: 0
-    }
-
-    .note {
-      font-size: .8rem;
-      color: var(--mut);
-      margin-top: 12px
-    }
-
-    details summary {
-      cursor: pointer;
-      font-weight: 600;
-      color: var(--navy)
-    }
-
-    details .g {
-      margin-top: 12px
-    }
-  </style>
 </head>
 
 <body>
   <header>
     <div>
-      <h1 style="text-align: center; font-family: 'Segoe UI', system-ui, sans-serif; font-size: 3rem;">Sistema de Calculos Laborales</h1>
-      <p style="text-align: center; font-family: 'Segoe UI', system-ui, sans-serif; font-size: 1.25rem;">Liquidación por despido injustificado o renuncia voluntaria, según el Código de Trabajo de El Salvador.</p>
+      <h1 style="text-align: center; font-family: 'Segoe UI', system-ui, sans-serif; font-size: 3rem;">Sistema de
+        Calculos Laborales</h1>
+      <p style="text-align: center; font-family: 'Segoe UI', system-ui, sans-serif; font-size: 1.25rem;">Liquidación por
+        despido injustificado o renuncia voluntaria, según el Código de Trabajo de El Salvador.</p>
     </div>
   </header>
+
+  <div class="nav-bg">
+    <nav class="navegacion-principal contenedor">
+      <a href="#">Inicio</a>
+      <a href="#">Indemnización y Renuncia</a>
+      <a href="#">Vacaciones y Aguinaldo</a>
+      <a href="#">Salario Neto</a>
+    </nav>
+  </div>
   <main>
-    <div>
-      <form id="f" novalidate>
-        <section class="card">
-          <h2>1. Información General</h2>
-          <div class="g">
-            <div class="w"><label for="sal">Ingreso mensual (USD) *</label><input id="sal" type="number" min="0"
-                step="0.01" placeholder="Ej. 1200.00"><small>Salario nominal mensual.</small></div>
-            <div><label for="anios">Años laborados *</label><input id="anios" type="number" min="0" step="1"
-                placeholder="0"></div>
-            <div><label for="meses">Meses laborados (0 a 11) *</label><input id="meses" type="number" min="0" max="11"
-                step="1" placeholder="0"></div>
+
+    
+
+      <!-- Información General -->
+       <div class="page-title"><i class="fa-solid fa-calculator"></i>Registrar Cálculo</div>
+
+    <div class="container-fluid px-4 pt-4">
+      <div class="card card-custom">
+        <div class="card-header">
+          <h2><i class="fa-solid fa-circle-info"></i>Información General</h2>
+        </div>
+        <div class="card-body px-4">
+          <table class="info-table">
+            <tr>
+              <td>Empresa seleccionada:</td>
+              <td id="empresa">Pendiente.</td>
+            </tr>
+            <tr>
+              <td>Actividad económica:</td>
+              <td id="actividad">Restaurantes</td>
+            </tr>
+            <tr>
+              <td>Tipo de empresa:</td>
+              <td id="tipo">Privada</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <!-- Aviso -->
+      <div class="alert-info-custom">
+        <i class="fa-solid fa-circle-info"></i>
+        <strong>Información importante:</strong> Los campos marcados con <span class="req">(*)</span> son obligatorios
+        para completar el cálculo.
+      </div>
+
+      <!-- Información General de la Empresa -->
+      <form id="formCalculo" novalidate>
+        <div class="card card-custom">
+          <div class="card-header">
+            <h2><i class="fa-solid fa-building"></i>Información General de la Empresa</h2>
           </div>
-        </section>
+          <div class="card-body p-4">
+            <div class="row g-4">
+              <div class="col-md-5">
+                <label for="naturaleza" class="form-label">
+                  <i class="fa-solid fa-industry"></i>Naturaleza de la empresa <span class="req">(*)</span>
+                </label>
+                <select id="naturaleza" name="naturaleza" class="form-select" required>
+                  <option value="" selected disabled>Seleccione una opción</option>
+                  <option>Persona natural</option>
+                  <option>Sociedad Anónima (S.A.)</option>
+                  <option>Sociedad Anónima de Capital Variable (S.A. de C.V.)</option>
+                  <option>Sociedad de Responsabilidad Limitada (S.R.L.)</option>
+                  <option>Asociación o Fundación sin fines de lucro</option>
+                  <option>Otra</option>
+                </select>
+                <div class="form-text"><i class="fa-solid fa-lightbulb"></i>Seleccione el tipo de organización según su
+                  naturaleza jurídica</div>
+                <div class="invalid-feedback">Este campo es obligatorio.</div>
+              </div>
 
-        <section class="card">
-          <h2>2. Causa de finalización de la relación laboral</h2>
-          <label for="causa">Tipo de cierre *</label>
-          <select id="causa">
-            <option value="">Seleccione una opción</option>
-            <option value="despido">Despido injustificado</option>
-            <option value="renuncia">Renuncia voluntaria</option>
-          </select>
-        </section>
-
-        <section class="card">
-          <h2>3. Jornadas extraordinarias y días especiales</h2>
-          <label class="opt"><input type="checkbox" id="na"> No aplica (no trabajé horas extras ni días
-            especiales)</label>
-          <div class="g" id="extras">
-            <div><label for="hd">Horas extras diurnas</label><input id="hd" type="number" min="0" step="0.5"
-                value="0"><small>Total acumulado en el periodo.</small></div>
-            <div><label for="hn">Horas extras nocturnas</label><input id="hn" type="number" min="0" step="0.5"
-                value="0"><small>Entre las 7:00 p.m. y las 6:00 a.m.</small></div>
-            <div><label for="as">Días de asueto laborados</label><input id="as" type="number" min="0" step="1"
-                value="0"></div>
-            <div><label for="ds">Días de descanso semanal laborados</label><input id="ds" type="number" min="0" step="1"
-                value="0"></div>
-          </div>
-        </section>
-
-        <section class="card">
-          <details>
-            <summary>Datos para el comprobante PDF (opcional)</summary>
-            <div class="g">
-              <div class="w"><label for="nom">Persona trabajadora</label><input id="nom" type="text"></div>
-              <div><label for="pat">Patrono</label><input id="pat" type="text"></div>
-              <div><label for="car">Cargo desempeñado</label><input id="car" type="text"></div>
-              <div><label for="fter">Fecha de terminación</label><input id="fter" type="date"><small>Se usa para el
-                  aguinaldo proporcional. Por defecto, hoy.</small></div>
+              <div class="col-md-5">
+                <label for="motivo" class="form-label">
+                  <i class="fa-solid fa-circle-question"></i>Motivo del cálculo <span class="req">(*)</span>
+                </label>
+                <select id="motivo" name="motivo" class="form-select" required>
+                  <option value="" selected disabled>Seleccione un motivo</option>
+                  <option>Renuncia voluntaria</option>
+                  <option>Despido con causa justificada</option>
+                  <option>Despido sin causa justificada</option>
+                  <option>Mutuo acuerdo</option>
+                  <option>Finalización de contrato</option>
+                  <option>Retiro por jubilación</option>
+                  <option>Fallecimiento del trabajador</option>
+                </select>
+                <div class="form-text"><i class="fa-solid fa-clipboard-list"></i>Motivo por el cual se termina la
+                  relación laboral</div>
+                <div class="invalid-feedback">Este campo es obligatorio.</div>
+              </div>
             </div>
-          </details>
-        </section>
-
-        <div class="btns"><button type="submit" class="p">Realizar cálculo</button><button type="reset" class="s"
-            id="rst">Limpiar</button></div>
-        <p class="err" id="err" role="alert"></p>
+          </div>
+        </div>
       </form>
+    </div>
+
+    <section class="card">
+      <h2>3. Jornadas extraordinarias y días especiales</h2>
+      <label class="opt"><input type="checkbox" id="na"> No aplica (no trabajé horas extras ni días
+        especiales)</label>
+      <div class="g" id="extras">
+        <div><label for="hd">Horas extras diurnas</label><input id="hd" type="number" min="0" step="0.5"
+            value="0"><small>Total acumulado en el periodo.</small></div>
+        <div><label for="hn">Horas extras nocturnas</label><input id="hn" type="number" min="0" step="0.5"
+            value="0"><small>Entre las 7:00 p.m. y las 6:00 a.m.</small></div>
+        <div><label for="as">Días de asueto laborados</label><input id="as" type="number" min="0" step="1" value="0">
+        </div>
+        <div><label for="ds">Días de descanso semanal laborados</label><input id="ds" type="number" min="0" step="1"
+            value="0"></div>
+      </div>
+    </section>
+
+    <section class="card">
+      <details>
+        <summary>Datos para el comprobante PDF (opcional)</summary>
+        <div class="g">
+          <div class="w"><label for="nom">Persona trabajadora</label><input id="nom" type="text"></div>
+          <div><label for="pat">Patrono</label><input id="pat" type="text"></div>
+          <div><label for="car">Cargo desempeñado</label><input id="car" type="text"></div>
+          <div><label for="fter">Fecha de terminación</label><input id="fter" type="date"><small>Se usa para el
+              aguinaldo proporcional. Por defecto, hoy.</small></div>
+        </div>
+      </details>
+    </section>
+
+    <div class="btns"><button type="submit" class="p">Realizar cálculo</button><button type="reset" class="s"
+        id="rst">Limpiar</button></div>
+    <p class="err" id="err" role="alert"></p>
+    </form>
     </div>
 
     <aside id="res">
