@@ -47,16 +47,26 @@
         <div class="card-body px-4">
           <table class="info-table">
             <tr>
-              <td>Empresa seleccionada:</td>
-              <td id="empresa">Pendiente.</td>
+              <td>Nombre de la empresa o razón social:</td>
+              <td><input type="text" id="empresa" name="empresa" placeholder="Ingrese el nombre de la empresa"></td>
             </tr>
             <tr>
               <td>Actividad económica:</td>
-              <td id="actividad">Restaurantes</td>
+              <td><input type="text" id="acteco" name="acteco" placeholder="Ingrese la actividad economica"
             </tr>
             <tr>
               <td>Tipo de empresa:</td>
-              <td id="tipo">Privada</td>
+              <td>
+                <select id="tipo" name="tipo">
+                  <option value="" selected disabled>Seleccione un tipo</option>
+                  <option>Privada</option>
+                  <option>Pública</option>
+                  <option>Mixta</option>
+                  <option>Cooperativa</option>
+                  <option>Sin fines de lucro</option>
+                  <option>Otra</option>
+                </select>
+              </td>
             </tr>
           </table>
         </div>
