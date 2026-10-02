@@ -26,162 +26,273 @@
 
   <div class="nav-bg">
     <nav class="navegacion-principal contenedor">
-      <a href="#">Inicio</a>
-      <a href="#">Indemnización y Renuncia</a>
-      <a href="#">Vacaciones y Aguinaldo</a>
-      <a href="#">Salario Neto</a>
+      <a href="#inicio" data-vista="inicio">Inicio</a>
+      <a href="#indemnizacion" data-vista="indemnizacion" aria-current="page">Indemnización y Renuncia</a>
+      <a href="#vacaciones" data-vista="vacaciones">Vacaciones y Aguinaldo</a>
+      <a href="#salario-neto" data-vista="salario-neto">Salario Neto</a>
     </nav>
   </div>
   <main>
-
-    
+    <section id="vista-indemnizacion" class="vista">
 
       <!-- Información General -->
-       <div class="page-title"><i class="fa-solid fa-calculator"></i>Registrar Cálculo</div>
+      <div class="page-title"><i class="fa-solid fa-calculator"></i>Registrar Cálculo</div>
 
-    <div class="container-fluid px-4 pt-4">
-      <div class="card card-custom">
-        <div class="card-header">
-          <h2><i class="fa-solid fa-circle-info"></i>Información General</h2>
-        </div>
-        <div class="card-body px-4">
-          <table class="info-table">
-            <tr>
-              <td>Nombre de la empresa o razón social:</td>
-              <td><input type="text" id="empresa" name="empresa" placeholder="Ingrese el nombre de la empresa"></td>
-            </tr>
-            <tr>
-              <td>Actividad económica:</td>
-              <td><input type="text" id="acteco" name="acteco" placeholder="Ingrese la actividad economica"
-            </tr>
-            <tr>
-              <td>Tipo de empresa:</td>
-              <td>
-                <select id="tipo" name="tipo">
-                  <option value="" selected disabled>Seleccione un tipo</option>
-                  <option>Privada</option>
-                  <option>Pública</option>
-                  <option>Mixta</option>
-                  <option>Cooperativa</option>
-                  <option>Sin fines de lucro</option>
-                  <option>Otra</option>
-                </select>
-              </td>
-            </tr>
-          </table>
-        </div>
-      </div>
-
-      <!-- Aviso -->
-      <div class="alert-info-custom">
-        <i class="fa-solid fa-circle-info"></i>
-        <strong>Información importante:</strong> Los campos marcados con <span class="req">(*)</span> son obligatorios
-        para completar el cálculo.
-      </div>
-
-      <!-- Información General de la Empresa -->
-      <form id="formCalculo" novalidate>
+      <div class="container-fluid px-4 pt-4">
         <div class="card card-custom">
           <div class="card-header">
-            <h2><i class="fa-solid fa-building"></i>Información General de la Empresa</h2>
+            <h2><i class="fa-solid fa-circle-info"></i>Información General</h2>
           </div>
-          <div class="card-body p-4">
-            <div class="row g-4">
-              <div class="col-md-5">
-                <label for="naturaleza" class="form-label">
-                  <i class="fa-solid fa-industry"></i>Naturaleza de la empresa <span class="req">(*)</span>
-                </label>
-                <select id="naturaleza" name="naturaleza" class="form-select" required>
-                  <option value="" selected disabled>Seleccione una opción</option>
-                  <option>Persona natural</option>
-                  <option>Sociedad Anónima (S.A.)</option>
-                  <option>Sociedad Anónima de Capital Variable (S.A. de C.V.)</option>
-                  <option>Sociedad de Responsabilidad Limitada (S.R.L.)</option>
-                  <option>Asociación o Fundación sin fines de lucro</option>
-                  <option>Otra</option>
-                </select>
-                <div class="form-text"><i class="fa-solid fa-lightbulb"></i>Seleccione el tipo de organización según su
-                  naturaleza jurídica</div>
-                <div class="invalid-feedback">Este campo es obligatorio.</div>
-              </div>
+          <div class="card-body px-4">
+            <table class="info-table">
+              <tr>
+                <td>Nombre de la empresa o razón social:</td>
+                <td><input type="text" id="empresa" name="empresa" placeholder="Ingrese el nombre de la empresa"></td>
+              </tr>
+              <tr>
+                <td>Actividad económica:</td>
+                <td><input type="text" id="acteco" name="acteco" placeholder="Ingrese la actividad economica"></td>
+              </tr>
+              <tr>
+                <td>Tipo de empresa:</td>
+                <td>
+                  <select id="tipo" name="tipo">
+                    <option value="" selected disabled>Seleccione un tipo</option>
+                    <option>Privada</option>
+                    <option>Pública</option>
+                    <option>Autonoma</option>
+                    <option>Semi-Autonoma</option>
+                    <option>Sin fines de lucro</option>
+                    <option>Municipal</option>
+                  </select>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
 
-              <div class="col-md-5">
-                <label for="motivo" class="form-label">
-                  <i class="fa-solid fa-circle-question"></i>Motivo del cálculo <span class="req">(*)</span>
-                </label>
-                <select id="motivo" name="motivo" class="form-select" required>
-                  <option value="" selected disabled>Seleccione un motivo</option>
-                  <option>Renuncia voluntaria</option>
-                  <option>Despido con causa justificada</option>
-                  <option>Despido sin causa justificada</option>
-                  <option>Mutuo acuerdo</option>
-                  <option>Finalización de contrato</option>
-                  <option>Retiro por jubilación</option>
-                  <option>Fallecimiento del trabajador</option>
-                </select>
-                <div class="form-text"><i class="fa-solid fa-clipboard-list"></i>Motivo por el cual se termina la
-                  relación laboral</div>
-                <div class="invalid-feedback">Este campo es obligatorio.</div>
+        <!-- Aviso -->
+        <div class="alert-info-custom">
+          <i class="fa-solid fa-circle-info"></i>
+          <strong>Información importante:</strong> Los campos marcados con <span class="req">(*)</span> son obligatorios
+          para completar el cálculo.
+        </div>
+
+        <!-- Información General de la Empresa -->
+        <form id="formCalculo" novalidate>
+          <div class="card card-custom">
+            <div class="card-header">
+              <h2><i class="fa-solid fa-building"></i>Información General de la Empresa</h2>
+            </div>
+            <div class="card-body p-4">
+              <div class="row g-4">
+                <div class="col-md-5">
+                  <label for="naturaleza" class="form-label">
+                    <i class="fa-solid fa-industry"></i>Naturaleza de la empresa <span class="req">(*)</span>
+                  </label>
+                  <select id="naturaleza" name="naturaleza" class="form-select" required>
+                    <option value="" selected disabled>Seleccione una opción</option>
+                    <option>Comercio</option>
+                    <option>Industria</option>
+                    <option>Agricultura</option>
+                    <option>Servicio</option>
+                    <option>Ganadería</option>
+                    <option>Textil</option>
+                    <option>Servicios Domésticos</option>
+                    <option>Beneficio del café</option>
+                    <option>Trabajadores de Pesca</option>
+                    </option>
+                  </select>
+                  <div class="form-text"><i class="fa-solid fa-lightbulb"></i>Seleccione el sector económico de la empresa.</div>
+                  <div class="invalid-feedback">Este campo es obligatorio.</div>
+                </div>
+
+                <div class="col-md-5">
+                  <label for="salarioMinimo" class="form-label">
+                    <i class="fa-solid fa-money-bill-wave"></i>Salario mínimo vigente
+                  </label>
+                  <input id="salarioMinimo" name="salarioMinimo" class="form-control" type="text" readonly
+                    placeholder="Se mostrará según la naturaleza">
+                  <div class="form-text">Tarifa mensual vigente según el sector económico.</div>
+                </div>
+
+                <div class="card card-custom">
+                  <div class="card-header">
+                    <h2><i class="fa-solid fa-location-dot"></i>Ubicación de la Empresa</h2>
+                  </div>
+                  <div class="card-body p-4">
+                    <div class="row g-3">
+                      <div class="col-md-6">
+                        <label for="departamento" class="form-label">
+                          Departamento <span class="req">(*)</span>
+                        </label>
+                        <select id="departamento" name="departamento" class="form-select" required>
+                          <option value="" selected disabled>Selecciona el departamento</option>
+                          <option>Ahuachapán</option>
+                          <option>Cabañas</option>
+                          <option>Chalatenango</option>
+                          <option>Cuscatlán</option>
+                          <option>La Libertad</option>
+                          <option>La Paz</option>
+                          <option>La Unión</option>
+                          <option>Morazán</option>
+                          <option>San Miguel</option>
+                          <option>San Salvador</option>
+                          <option>San Vicente</option>
+                          <option>Santa Ana</option>
+                          <option>Sonsonate</option>
+                          <option>Usulután</option>
+                        </select>
+                      </div>
+
+                      <div class="col-md-6">
+                        <label for="municipio" class="form-label">
+                          <i class="fa-solid fa-location-arrow"></i>Municipio <span class="req">(*)</span>
+                        </label>
+                        <select id="municipio" name="municipio" class="form-select" disabled required>
+                          <option value="" selected>Selecciona primero el departamento</option>
+                        </select>
+                      </div>
+
+                      <div class="col-md-6">
+                        <label for="distrito" class="form-label">
+                          <i class="fa-solid fa-map-pin"></i>Distrito <span class="req">(*)</span>
+                        </label>
+                        <select id="distrito" name="distrito" class="form-select" disabled required>
+                          <option value="" selected>Selecciona primero el municipio</option>
+                        </select>
+                      </div>
+
+                      <div class="col-md-6 d-flex align-items-center">
+                        <div class="form-text">
+                          <i class="fa-solid fa-location-dot"></i>Selecciona la ubicación en orden: Departamento →
+                          Municipio → Distrito
+                        </div>
+                      </div>
+
+                      <div class="col-12">
+                        <label for="direccion" class="form-label">
+                          <i class="fa-solid fa-house"></i>Dirección completa <span class="req">(*)</span>
+                        </label>
+                        <textarea id="direccion" name="direccion" class="form-control" rows="3" required
+                          placeholder="Ingresa la dirección completa de la empresa (calle, número, colonia, referencias)"></textarea>
+                        <div class="form-text">Incluye referencias que faciliten la ubicación de la empresa</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-5">
+                  <label for="motivo" class="form-label">
+                    <i class="fa-solid fa-circle-question"></i>Motivo del cálculo <span class="req">(*)</span>
+                  </label>
+                  <select id="motivo" name="motivo" class="form-select" required>
+                    <option value="" selected disabled>Seleccione un motivo</option>
+                    <option>Renuncia voluntaria</option>
+                    <option>Despido con causa justificada</option>
+                    <option>Despido sin causa justificada</option>
+                    <option>Mutuo acuerdo</option>
+                    <option>Finalización de contrato</option>
+                    <option>Retiro por jubilación</option>
+                    <option>Fallecimiento del trabajador</option>
+                  </select>
+                  <div class="form-text"><i class="fa-solid fa-clipboard-list"></i>Motivo por el cual se termina la
+                    relación laboral</div>
+                  <div class="invalid-feedback">Este campo es obligatorio.</div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </form>
-    </div>
 
-    <section class="card">
-      <h2>3. Jornadas extraordinarias y días especiales</h2>
-      <label class="opt"><input type="checkbox" id="na"> No aplica (no trabajé horas extras ni días
-        especiales)</label>
-      <div class="g" id="extras">
-        <div><label for="hd">Horas extras diurnas</label><input id="hd" type="number" min="0" step="0.5"
-            value="0"><small>Total acumulado en el periodo.</small></div>
-        <div><label for="hn">Horas extras nocturnas</label><input id="hn" type="number" min="0" step="0.5"
-            value="0"><small>Entre las 7:00 p.m. y las 6:00 a.m.</small></div>
-        <div><label for="as">Días de asueto laborados</label><input id="as" type="number" min="0" step="1" value="0">
-        </div>
-        <div><label for="ds">Días de descanso semanal laborados</label><input id="ds" type="number" min="0" step="1"
-            value="0"></div>
+        </form>
       </div>
-    </section>
 
-    <section class="card">
-      <details>
-        <summary>Datos para el comprobante PDF (opcional)</summary>
-        <div class="g">
-          <div class="w"><label for="nom">Persona trabajadora</label><input id="nom" type="text"></div>
-          <div><label for="pat">Patrono</label><input id="pat" type="text"></div>
-          <div><label for="car">Cargo desempeñado</label><input id="car" type="text"></div>
-          <div><label for="fter">Fecha de terminación</label><input id="fter" type="date"><small>Se usa para el
-              aguinaldo proporcional. Por defecto, hoy.</small></div>
-        </div>
-      </details>
-    </section>
-
-    <div class="btns"><button type="submit" class="p">Realizar cálculo</button><button type="reset" class="s"
-        id="rst">Limpiar</button></div>
-    <p class="err" id="err" role="alert"></p>
-    </form>
-    </div>
-
-    <aside id="res">
       <section class="card">
-        <h2>Resultados</h2>
-        <div id="out">
-          <p class="empty">Complete el formulario y presione «Realizar cálculo» para ver el desglose.</p>
+        <h2>3. Jornadas extraordinarias y días especiales</h2>
+        <label class="opt"><input type="checkbox" id="na"> No aplica (no trabajé horas extras ni días
+          especiales)</label>
+        <div class="g" id="extras">
+          <div><label for="hd">Horas extras diurnas</label><input id="hd" type="number" min="0" step="0.5"
+              value="0"><small>Total acumulado en el periodo.</small></div>
+          <div><label for="hn">Horas extras nocturnas</label><input id="hn" type="number" min="0" step="0.5"
+              value="0"><small>Entre las 7:00 p.m. y las 6:00 a.m.</small></div>
+          <div><label for="as">Días de asueto laborados</label><input id="as" type="number" min="0" step="1" value="0">
+          </div>
+          <div><label for="ds">Días de descanso semanal laborados</label><input id="ds" type="number" min="0" step="1"
+              value="0"></div>
         </div>
-        <div class="btns" style="margin-top:14px"><button class="p" id="pdf" disabled>Descargar comprobante PDF</button>
-        </div>
-        <p class="note">Herramienta informativa. No constituye el finiquito laboral (Art. 402 CT); consulte a la
-          Dirección General de Inspección de Trabajo o asesoría legal.</p>
       </section>
-    </aside>
+
+      <section class="card">
+        <details>
+          <summary>Datos para el comprobante PDF (opcional)</summary>
+          <div class="g">
+            <div class="w"><label for="nom">Persona trabajadora</label><input id="nom" type="text"></div>
+            <div><label for="pat">Patrono</label><input id="pat" type="text"></div>
+            <div><label for="car">Cargo desempeñado</label><input id="car" type="text"></div>
+            <div><label for="fter">Fecha de terminación</label><input id="fter" type="date"><small>Se usa para el
+                aguinaldo proporcional. Por defecto, hoy.</small></div>
+          </div>
+        </details>
+      </section>
+
+      <div class="btns"><button type="submit" class="p">Realizar cálculo</button><button type="reset" class="s"
+          id="rst">Limpiar</button></div>
+      <p class="err" id="err" role="alert"></p>
+      </form>
+      </div>
+
+      <aside id="res">
+        <section class="card">
+          <h2>Resultados</h2>
+          <div id="out">
+            <p class="empty">Complete el formulario y presione «Realizar cálculo» para ver el desglose.</p>
+          </div>
+          <div class="btns" style="margin-top:14px"><button class="p" id="pdf" disabled>Descargar comprobante
+              PDF</button>
+          </div>
+          <p class="note">Herramienta informativa. No constituye el finiquito laboral (Art. 402 CT); consulte a la
+            Dirección General de Inspección de Trabajo o asesoría legal.</p>
+        </section>
+      </aside>
+    </section>
+
+    <section id="vista-inicio" class="vista" hidden></section>
+    <section id="vista-vacaciones" class="vista" hidden></section>
+    <section id="vista-salario-neto" class="vista" hidden></section>
   </main>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <script>
+    const enlacesVista = document.querySelectorAll('[data-vista]');
+    const vistas = document.querySelectorAll('.vista');
+
+    enlacesVista.forEach(enlace => {
+      enlace.addEventListener('click', evento => {
+        evento.preventDefault();
+        const vistaActiva = enlace.dataset.vista;
+
+        vistas.forEach(vista => {
+          vista.hidden = vista.id !== `vista-${vistaActiva}`;
+        });
+        enlacesVista.forEach(item => item.removeAttribute('aria-current'));
+        enlace.setAttribute('aria-current', 'page');
+        history.replaceState(null, '', enlace.getAttribute('href'));
+      });
+    });
+
     //CALC-START
     const SMD = 13.44, SMM = 408.80; // Salario mínimo diario y mensual (comercio, servicios e industria, vigente desde jun. 2025)
+    const salariosMinimos = {
+      'Comercio': 408.80,
+      'Industria': 408.80,
+      'Agricultura': 272.53,
+      'Servicio': 408.80,
+      'Ganadería': 272.53,
+      'Textil': 402.32,
+      'Servicios Domésticos': 408.80,
+      'Beneficio del café': 305.23,
+      'Trabajadores de Pesca': 272.53
+    };
     const r2 = x => Math.round((x + Number.EPSILON) * 100) / 100;
     function isr(b) { // Retención mensual, Art. 37 Ley de ISR
       if (b <= 550) return 0;
@@ -235,8 +346,111 @@
 
     const $ = id => document.getElementById(id);
     const usd = n => '$' + n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    $('naturaleza').addEventListener('change', () => {
+      const salarioMinimo = salariosMinimos[$('naturaleza').value];
+      $('salarioMinimo').value = salarioMinimo ? `$${salarioMinimo.toFixed(2)} mensuales` : '';
+    });
+
     let last = null;
     const today = () => new Date().toISOString().slice(0, 10);
+    const ubicaciones = {
+      'Ahuachapán': {
+        'Ahuachapán Norte': ['Atiquizaya', 'El Refugio', 'San Lorenzo', 'Turín'],
+        'Ahuachapán Centro': ['Ahuachapán', 'Apaneca', 'Concepción de Ataco', 'Tacuba'],
+        'Ahuachapán Sur': ['Guaymango', 'Jujutla', 'San Francisco Menéndez', 'San Pedro Puxtla']
+      },
+      'San Salvador': {
+        'San Salvador Norte': ['Aguilares', 'El Paisnal', 'Guazapa'],
+        'San Salvador Oeste': ['Apopa', 'Nejapa'],
+        'San Salvador Este': ['Ilopango', 'San Martín', 'Soyapango', 'Tonacatepeque'],
+        'San Salvador Centro': ['Ayutuxtepeque', 'Mejicanos', 'San Salvador', 'Cuscatancingo', 'Ciudad Delgado'],
+        'San Salvador Sur': ['Panchimalco', 'Rosario de Mora', 'San Marcos', 'Santo Tomás', 'Santiago Texacuangos']
+      },
+      'La Libertad': {
+        'La Libertad Norte': ['Quezaltepeque', 'San Matías', 'San Pablo Tacachico'],
+        'La Libertad Centro': ['San Juan Opico', 'Ciudad Arce'],
+        'La Libertad Oeste': ['Colón', 'Jayaque', 'Sacacoyo', 'Tepecoyo', 'Talnique'],
+        'La Libertad Este': ['Antiguo Cuscatlán', 'Huizúcar', 'Nuevo Cuscatlán', 'San José Villanueva', 'Zaragoza'],
+        'La Libertad Costa': ['Chiltiupán', 'Jicalapa', 'La Libertad', 'Tamanique', 'Teotepeque'],
+        'La Libertad Sur': ['Comasagua', 'Santa Tecla']
+      },
+      'Chalatenango': {
+        'Chalatenango Norte': ['La Palma', 'Citalá', 'San Ignacio'],
+        'Chalatenango Centro': ['Nueva Concepción', 'Tejutla', 'La Reina', 'Agua Caliente', 'Dulce Nombre de María', 'El Paraíso', 'San Francisco Morazán', 'San Rafael', 'Santa Rita', 'San Fernando'],
+        'Chalatenango Sur': ['Chalatenango', 'Arcatao', 'Azacualpa', 'Comalapa', 'Concepción Quezaltepeque', 'El Carrizal', 'La Laguna', 'Las Vueltas', 'Nombre de Jesús', 'Nueva Trinidad', 'Ojos de Agua', 'Potonico', 'San Antonio de La Cruz', 'San Antonio Los Ranchos', 'San Francisco Lempa', 'San Isidro Labrador', 'San José Cancasque', 'San Miguel de Mercedes', 'San José Las Flores', 'San Luis del Carmen']
+      },
+      'Cuscatlán': {
+        'Cuscatlán Norte': ['Suchitoto', 'San José Guayabal', 'Oratorio de Concepción', 'San Bartolomé Perulapán', 'San Pedro Perulapán'],
+        'Cuscatlán Sur': ['Cojutepeque', 'San Rafael Cedros', 'Candelaria', 'Monte San Juan', 'El Carmen', 'San Cristóbal', 'Santa Cruz Michapa', 'San Ramón', 'El Rosario', 'Santa Cruz Analquito', 'Tenancingo']
+      },
+      'Cabañas': {
+        'Cabañas Este': ['Sensuntepeque', 'Victoria', 'Dolores', 'Guacotecti', 'San Isidro'],
+        'Cabañas Oeste': ['Ilobasco', 'Tejutepeque', 'Jutiapa', 'Cinquera']
+      },
+      'La Paz': {
+        'La Paz Oeste': ['Cuyultitán', 'Olocuilta', 'San Juan Talpa', 'San Luis Talpa', 'San Pedro Masahuat', 'Tapalhuaca', 'San Francisco Chinameca'],
+        'La Paz Centro': ['El Rosario', 'Jerusalén', 'Mercedes La Ceiba', 'Paraíso de Osorio', 'San Antonio Masahuat', 'San Emigdio', 'San Juan Tepezontes', 'San Luis La Herradura', 'San Miguel Tepezontes', 'San Pedro Nonualco', 'Santa María Ostuma', 'Santiago Nonualco'],
+        'La Paz Este': ['San Juan Nonualco', 'San Rafael Obrajuelo', 'Zacatecoluca']
+      },
+      'La Unión': {
+        'La Unión Norte': ['Anamorós', 'Bolívar', 'Concepción de Oriente', 'El Sauce', 'Lislique', 'Nueva Esparta', 'Pasaquina', 'Polorós', 'San José La Fuente', 'Santa Rosa de Lima'],
+        'La Unión Sur': ['Conchagua', 'El Carmen', 'Intipucá', 'La Unión', 'Meanguera del Golfo', 'San Alejo', 'Yayantique', 'Yucuaiquín']
+      },
+      'Usulután': {
+        'Usulután Norte': ['Santiago de María', 'Alegría', 'Berlín', 'Mercedes Umaña', 'Jucuapa', 'El Triunfo', 'Estanzuelas', 'San Buenaventura', 'Nueva Granada'],
+        'Usulután Este': ['Usulután', 'Jucuarán', 'San Dionisio', 'Concepción Batres', 'Santa María', 'Ozatlán', 'Tecapán', 'Santa Elena', 'California', 'Ereguayquín'],
+        'Usulután Oeste': ['Jiquilisco', 'Puerto El Triunfo', 'San Agustín', 'San Francisco Javier']
+      },
+      'Sonsonate': {
+        'Sonsonate Norte': ['Juayúa', 'Nahuizalco', 'Salcoatitán', 'Santa Catarina Masahuat'],
+        'Sonsonate Centro': ['Sonsonate', 'Sonzacate', 'Nahulingo', 'San Antonio del Monte', 'Santo Domingo de Guzmán'],
+        'Sonsonate Este': ['Izalco', 'Armenia', 'Caluco', 'San Julián', 'Cuisnahuat', 'Santa Isabel Ishuatán'],
+        'Sonsonate Oeste': ['Acajutla']
+      },
+      'Santa Ana': {
+        'Santa Ana Norte': ['Masahuat', 'Metapán', 'Santa Rosa Guachipilín', 'Texistepeque'],
+        'Santa Ana Centro': ['Santa Ana'],
+        'Santa Ana Este': ['Coatepeque', 'El Congo'],
+        'Santa Ana Oeste': ['Candelaria de la Frontera', 'Chalchuapa', 'El Porvenir', 'San Antonio Pajonal', 'San Sebastián Salitrillo', 'Santiago de La Frontera']
+      },
+      'San Vicente': {
+        'San Vicente Norte': ['Apastepeque', 'Santa Clara', 'San Ildefonso', 'San Esteban Catarina', 'San Sebastián', 'San Lorenzo', 'Santo Domingo'],
+        'San Vicente Sur': ['San Vicente', 'Guadalupe', 'Verapaz', 'Tepetitán', 'Tecoluca', 'San Cayetano Istepeque']
+      },
+      'San Miguel': {
+        'San Miguel Norte': ['Ciudad Barrios', 'Sesori', 'Nuevo Edén de San Juan', 'San Gerardo', 'San Luis de La Reina', 'Carolina', 'San Antonio del Mosco', 'Chapeltique'],
+        'San Miguel Centro': ['San Miguel', 'Comacarán', 'Uluazapa', 'Moncagua', 'Quelepa', 'Chirilagua'],
+        'San Miguel Oeste': ['Chinameca', 'Nueva Guadalupe', 'Lolotique', 'San Jorge', 'San Rafael Oriente', 'El Tránsito']
+      },
+      'Morazán': {
+        'Morazán Norte': ['Arambala', 'Cacaopera', 'Corinto', 'El Rosario', 'Joateca', 'Jocoaitique', 'Meanguera', 'Perquín', 'San Fernando', 'San Isidro', 'Torola'],
+        'Morazán Sur': ['Chilanga', 'Delicias de Concepción', 'El Divisadero', 'Gualococti', 'Guatajiagua', 'Jocoro', 'Lolotiquillo', 'Osicala', 'San Carlos', 'San Francisco Gotera', 'San Simón', 'Sensembra', 'Sociedad', 'Yamabal', 'Yoloaiquín']
+      }
+    };
+    const departamentoSelect = $('departamento');
+    const municipioSelect = $('municipio');
+    const distritoSelect = $('distrito');
+    const resetSelect = (select, placeholder) => {
+      select.replaceChildren(new Option(placeholder, ''));
+      select.disabled = true;
+    };
+
+    departamentoSelect.addEventListener('change', () => {
+      resetSelect(municipioSelect, 'Selecciona el municipio');
+      resetSelect(distritoSelect, 'Selecciona primero el municipio');
+      Object.keys(ubicaciones[departamentoSelect.value] || {}).forEach(municipio => {
+        municipioSelect.add(new Option(municipio, municipio));
+      });
+      municipioSelect.disabled = false;
+    });
+
+    municipioSelect.addEventListener('change', () => {
+      resetSelect(distritoSelect, 'Selecciona el distrito');
+      const distritos = ubicaciones[departamentoSelect.value]?.[municipioSelect.value] || [];
+      distritos.forEach(distrito => distritoSelect.add(new Option(distrito, distrito)));
+      distritoSelect.disabled = distritos.length === 0;
+    });
+
     $('fter').value = today();
 
     $('na').addEventListener('change', e => {
