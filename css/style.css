@@ -32,7 +32,7 @@
     }
 
     .page-title i {
-      color: #6c757d;
+      color: #b87932;
       margin-right: 10px;
     }
 
@@ -58,8 +58,16 @@
     }
 
     .card-custom .card-header i {
-      color: #6c757d;
+      display: inline-grid;
+      width: 34px;
+      height: 34px;
+      place-items: center;
+      border-radius: 8px;
+      background: #e3f2ef;
+      color: #147d72;
       margin-right: 10px;
+      font-size: .95rem;
+      vertical-align: middle;
     }
 
     .info-table {
@@ -103,7 +111,7 @@
     }
 
     .form-label i {
-      color: #6c757d;
+      color: #187c75;
       margin-right: 4px;
     }
 

@@ -19,8 +19,9 @@
     <div>
       <h1 style="text-align: center; font-family: 'Segoe UI', system-ui, sans-serif; font-size: 3rem;">Sistema de
         Calculos Laborales</h1>
-      <p style="text-align: center; font-family: 'Segoe UI', system-ui, sans-serif; font-size: 1.25rem;">Liquidación por
-        despido injustificado o renuncia voluntaria, según el Código de Trabajo de El Salvador.</p>
+      <p style="text-align: center; font-family: 'Segoe UI', system-ui, sans-serif; font-size: 1.25rem;">"Calcula tus
+        prestaciones laborales de forma rápida, precisa y transparente"
+        .</p>
     </div>
   </header>
 
@@ -36,12 +37,12 @@
     <section id="vista-indemnizacion" class="vista">
 
       <!-- Información General -->
-      <div class="page-title"><i class="fa-solid fa-calculator"></i>Registrar Cálculo</div>
+      <div class="page-title"><i class="fa-solid fa-file-invoice-dollar"></i>Registrar Cálculo</div>
 
       <div class="container-fluid px-4 pt-4">
         <div class="card card-custom">
           <div class="card-header">
-            <h2><i class="fa-solid fa-circle-info"></i>Información General</h2>
+            <h2><i class="fa-solid fa-address-card"></i>Información General</h2>
           </div>
           <div class="card-body px-4">
             <table class="info-table">
@@ -73,22 +74,22 @@
 
         <!-- Aviso -->
         <div class="alert-info-custom">
-          <i class="fa-solid fa-circle-info"></i>
+          <i class="fa-solid fa-circle-exclamation"></i>
           <strong>Información importante:</strong> Los campos marcados con <span class="req">(*)</span> son obligatorios
           para completar el cálculo.
         </div>
 
         <!-- Información General de la Empresa -->
-        <form id="formCalculo" novalidate>
+        <form id="f" novalidate>
           <div class="card card-custom">
             <div class="card-header">
-              <h2><i class="fa-solid fa-building"></i>Información General de la Empresa</h2>
+              <h2><i class="fa-solid fa-briefcase"></i>Información General de la Empresa</h2>
             </div>
             <div class="card-body p-4">
               <div class="row g-4">
                 <div class="col-md-5">
                   <label for="naturaleza" class="form-label">
-                    <i class="fa-solid fa-industry"></i>Naturaleza de la empresa <span class="req">(*)</span>
+                    <i class="fa-solid fa-layer-group"></i>Naturaleza de la empresa <span class="req">(*)</span>
                   </label>
                   <select id="naturaleza" name="naturaleza" class="form-select" required>
                     <option value="" selected disabled>Seleccione una opción</option>
@@ -103,13 +104,14 @@
                     <option>Trabajadores de Pesca</option>
                     </option>
                   </select>
-                  <div class="form-text"><i class="fa-solid fa-lightbulb"></i>Seleccione el sector económico de la empresa.</div>
+                  <div class="form-text"><i class="fa-solid fa-compass"></i>Seleccione el sector económico de la
+                    empresa.</div>
                   <div class="invalid-feedback">Este campo es obligatorio.</div>
                 </div>
 
                 <div class="col-md-5">
                   <label for="salarioMinimo" class="form-label">
-                    <i class="fa-solid fa-money-bill-wave"></i>Salario mínimo vigente
+                    <i class="fa-solid fa-sack-dollar"></i>Salario mínimo vigente
                   </label>
                   <input id="salarioMinimo" name="salarioMinimo" class="form-control" type="text" readonly
                     placeholder="Se mostrará según la naturaleza">
@@ -118,7 +120,7 @@
 
                 <div class="card card-custom">
                   <div class="card-header">
-                    <h2><i class="fa-solid fa-location-dot"></i>Ubicación de la Empresa</h2>
+                    <h2><i class="fa-solid fa-map-location-dot"></i>Ubicación de la Empresa</h2>
                   </div>
                   <div class="card-body p-4">
                     <div class="row g-3">
@@ -147,7 +149,7 @@
 
                       <div class="col-md-6">
                         <label for="municipio" class="form-label">
-                          <i class="fa-solid fa-location-arrow"></i>Municipio <span class="req">(*)</span>
+                          <i class="fa-solid fa-city"></i>Municipio <span class="req">(*)</span>
                         </label>
                         <select id="municipio" name="municipio" class="form-select" disabled required>
                           <option value="" selected>Selecciona primero el departamento</option>
@@ -165,14 +167,14 @@
 
                       <div class="col-md-6 d-flex align-items-center">
                         <div class="form-text">
-                          <i class="fa-solid fa-location-dot"></i>Selecciona la ubicación en orden: Departamento →
+                          <i class="fa-solid fa-route"></i>Selecciona la ubicación en orden: Departamento →
                           Municipio → Distrito
                         </div>
                       </div>
 
                       <div class="col-12">
                         <label for="direccion" class="form-label">
-                          <i class="fa-solid fa-house"></i>Dirección completa <span class="req">(*)</span>
+                          <i class="fa-solid fa-house-chimney"></i>Dirección completa <span class="req">(*)</span>
                         </label>
                         <textarea id="direccion" name="direccion" class="form-control" rows="3" required
                           placeholder="Ingresa la dirección completa de la empresa (calle, número, colonia, referencias)"></textarea>
@@ -182,62 +184,220 @@
                   </div>
                 </div>
                 <div class="col-md-5">
-                  <label for="motivo" class="form-label">
-                    <i class="fa-solid fa-circle-question"></i>Motivo del cálculo <span class="req">(*)</span>
+                  <label for="causa" class="form-label">
+                    <i class="fa-solid fa-scale-balanced"></i>Motivo del cálculo <span class="req">(*)</span>
                   </label>
-                  <select id="motivo" name="motivo" class="form-select" required>
+                  <select id="causa" name="causa" class="form-select" required>
                     <option value="" selected disabled>Seleccione un motivo</option>
-                    <option>Renuncia voluntaria</option>
-                    <option>Despido con causa justificada</option>
-                    <option>Despido sin causa justificada</option>
-                    <option>Mutuo acuerdo</option>
-                    <option>Finalización de contrato</option>
-                    <option>Retiro por jubilación</option>
-                    <option>Fallecimiento del trabajador</option>
+                    <option value="despido">POR DESPIDO</option>
+                    <option value="renuncia">POR RENUNCIA</option>
                   </select>
-                  <div class="form-text"><i class="fa-solid fa-clipboard-list"></i>Motivo por el cual se termina la
+                  <div class="form-text"><i class="fa-solid fa-list-check"></i>Motivo por el cual se termina la
                     relación laboral</div>
                   <div class="invalid-feedback">Este campo es obligatorio.</div>
                 </div>
+                <fieldset class="col-md-5" id="jornadaFieldset">
+                  <legend class="form-label"><i class="fa-solid fa-business-time"></i>¿Trabaja medio tiempo actualmente?
+                    <span class="req">(*)</span>
+                  </legend>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" id="medioTiempoSi" name="medioTiempo" value="si"
+                      required>
+                    <label class="form-check-label" for="medioTiempoSi">Sí</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" id="medioTiempoNo" name="medioTiempo" value="no"
+                      required>
+                    <label class="form-check-label" for="medioTiempoNo">No</label>
+                  </div>
+                  <div class="form-text"><i class="fa-solid fa-stopwatch"></i>Seleccione “Sí” si su jornada laboral es
+                    menor a tiempo completo.</div>
+                </fieldset>
               </div>
             </div>
           </div>
 
-        </form>
       </div>
 
-      <section class="card">
-        <h2>3. Jornadas extraordinarias y días especiales</h2>
-        <label class="opt"><input type="checkbox" id="na"> No aplica (no trabajé horas extras ni días
-          especiales)</label>
-        <div class="g" id="extras">
-          <div><label for="hd">Horas extras diurnas</label><input id="hd" type="number" min="0" step="0.5"
-              value="0"><small>Total acumulado en el periodo.</small></div>
-          <div><label for="hn">Horas extras nocturnas</label><input id="hn" type="number" min="0" step="0.5"
-              value="0"><small>Entre las 7:00 p.m. y las 6:00 a.m.</small></div>
-          <div><label for="as">Días de asueto laborados</label><input id="as" type="number" min="0" step="1" value="0">
+
+
+      <section class="card card-custom" id="informacionLaboral">
+        <div class="card-header">
+          <h2><i class="fa-solid fa-id-card"></i>Información Laboral</h2>
+        </div>
+        <fieldset class="card-body p-4" id="camposLaborales">
+          <div class="row g-4">
+            <div class="col-md-4">
+              <label for="fechaIngreso" class="form-label"><i class="fa-solid fa-calendar-check"></i>Fecha de ingreso
+                <span class="req">(*)</span></label>
+              <input id="fechaIngreso" name="fechaIngreso" class="form-control" type="date" required>
+              <div class="form-text"><i class="fa-solid fa-calendar-day"></i>Fecha en que inició la relación laboral.
+              </div>
+            </div>
+            <div class="col-md-4">
+              <label for="fter" class="form-label"><i class="fa-solid fa-calendar-xmark"></i>Último día laborado <span
+                  class="req">(*)</span></label>
+              <input id="fter" name="fter" class="form-control" type="date" required>
+              <div class="form-text"><i class="fa-solid fa-clock"></i>Fecha del último día trabajado.</div>
+            </div>
+            <div class="col-md-4">
+              <label for="caracteristica" class="form-label"><i class="fa-solid fa-user-shield"></i>Característica de la
+                persona <span class="req">(*)</span></label>
+              <select id="caracteristica" name="caracteristica" class="form-select" required>
+                <option value="" selected disabled>Seleccione una opción</option>
+                <option value="ninguna">NINGUNA</option>
+                <option value="embarazo">EMBARAZO</option>
+                <option value="adulto-mayor">PERSONA ADULTA MAYOR</option>
+                <option value="discapacidad">PERSONA CON DISCAPACIDAD</option>
+                <option value="sindicalizada">PERSONA SINDICALIZADA</option>
+              </select>
+              <div class="form-text"><i class="fa-solid fa-user-check"></i>Seleccione la característica de la persona.
+              </div>
+            </div>
+            <div class="col-md-6">
+              <label for="periodoVacacional" class="form-label"><i class="fa-solid fa-umbrella-beach"></i>Períodos
+                vacacionales completos generados <span class="req">(*)</span></label>
+              <select id="periodoVacacional" name="periodoVacacional" class="form-select" required>
+                <option value="" selected disabled>Seleccione el período vacacional</option>
+                <option value="0">Ningún período completo</option>
+                <option value="1">1 PERIODO (15 días)</option>
+                <option value="2">2 PERIODOS (30 días)</option>
+                <option value="3">3 PERIODOS (45 días)</option>
+              </select>
+              <div class="form-text"><i class="fa-solid fa-calendar-check"></i>El pago del último período se descuenta según su respuesta; el período actual se calcula proporcionalmente.</div>
+            </div>
+            <div class="col-md-6">
+              <label for="sal" class="form-label"><i class="fa-solid fa-wallet"></i>Salario mensual ($) <span
+                  class="req">(*)</span></label>
+              <input id="sal" name="sal" class="form-control" type="number" min="0.01" step="0.01" required
+                placeholder="0.00">
+              <div class="form-text"><i class="fa-solid fa-calculator"></i>Salario mensual base devengado.</div>
+            </div>
           </div>
-          <div><label for="ds">Días de descanso semanal laborados</label><input id="ds" type="number" min="0" step="1"
-              value="0"></div>
+        </fieldset>
+      </section>
+
+      <section class="card card-custom" id="beneficiosAdicionales">
+        <div class="card-header">
+          <h2><i class="fa-solid fa-award"></i>Beneficios Adicionales</h2>
+        </div>
+        <fieldset class="card-body p-4" id="camposBeneficios">
+          <div class="row g-4">
+            <div class="col-md-6">
+              <fieldset>
+                <legend class="form-label"><i class="fa-solid fa-umbrella-beach"></i>¿Recibió pago vacacional del año
+                  anterior? <span class="req">(*)</span></legend>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" id="vacacionalSi" name="pagoVacacionalAnterior"
+                    value="si" required>
+                  <label class="form-check-label" for="vacacionalSi">Sí</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" id="vacacionalNo" name="pagoVacacionalAnterior"
+                    value="no" required>
+                  <label class="form-check-label" for="vacacionalNo">No</label>
+                </div>
+              </fieldset>
+            </div>
+            <div class="col-md-6">
+              <fieldset>
+                <legend class="form-label"><i class="fa-solid fa-gift"></i>¿Recibió pago de aguinaldo del año anterior?
+                  <span class="req">(*)</span>
+                </legend>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" id="aguinaldoSi" name="aguinaldoAnterior" value="si"
+                    required>
+                  <label class="form-check-label" for="aguinaldoSi">Sí</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" id="aguinaldoNo" name="aguinaldoAnterior" value="no"
+                    required>
+                  <label class="form-check-label" for="aguinaldoNo">No</label>
+                </div>
+                <div class="form-text" id="periodoAguinaldoAnteriorTexto"></div>
+              </fieldset>
+            </div>
+            <div class="col-md-6">
+              <fieldset>
+                <legend class="form-label"><i class="fa-solid fa-chart-line"></i>¿Ha devengado comisiones los últimos 6
+                  meses? <span class="req">(*)</span></legend>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" id="comisionesSi" name="comisiones" value="si" required>
+                  <label class="form-check-label" for="comisionesSi">Sí</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" id="comisionesNo" name="comisiones" value="no" required>
+                  <label class="form-check-label" for="comisionesNo">No</label>
+                </div>
+              </fieldset>
+            </div>
+            <div class="col-12">
+              <div id="comisionesPanel" class="commission-panel" hidden>
+                <div class="commission-panel__heading">
+                  <div>
+                    <h3><i class="fa-solid fa-chart-line"></i>Cálculo de Comisiones</h3>
+                    <p>Ingresa los días trabajados y la comisión devengada en cada mes.</p>
+                  </div>
+                  <span class="commission-period">Últimos 6 meses</span>
+                </div>
+                <div class="table-responsive">
+                  <table class="commission-table">
+                    <thead>
+                      <tr>
+                        <th scope="col">Mes y año</th>
+                        <th scope="col">Días</th>
+                        <th scope="col">Comisión por mes ($)</th>
+                      </tr>
+                    </thead>
+                    <tbody id="comisionesRows"></tbody>
+                    <tfoot>
+                      <tr>
+                        <th scope="row">TOTAL</th>
+                        <th id="comisionesDiasTotal">0</th>
+                        <th id="comisionesMontoTotal">$0.00</th>
+                      </tr>
+                    </tfoot>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </section>
+
+      <section class="card card-custom" id="datosTrabajador">
+        <div class="card-header">
+          <h2><i class="fa-solid fa-user-pen"></i>Datos del trabajador (opcional)</h2>
+        </div>
+        <div class="card-body p-4">
+          <p class="form-text mb-3">Puedes dejar estos datos vacíos y realizar el cálculo normalmente.</p>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label for="nom" class="form-label">Nombre completo</label>
+              <input id="nom" name="nom" class="form-control" type="text" autocomplete="name"
+                placeholder="Nombre de la persona trabajadora">
+            </div>
+            <div class="col-md-6">
+              <label for="dui" class="form-label">DUI</label>
+              <input id="dui" name="dui" class="form-control" type="text" inputmode="numeric"
+                placeholder="00000000-0">
+            </div>
+            <div class="col-md-6">
+              <label for="car" class="form-label">Cargo desempeñado</label>
+              <input id="car" name="car" class="form-control" type="text"
+                placeholder="Cargo de la persona trabajadora">
+            </div>
+            <div class="col-md-6">
+              <label for="pat" class="form-label">Patrono o representante</label>
+              <input id="pat" name="pat" class="form-control" type="text"
+                placeholder="Nombre del patrono o representante">
+            </div>
+          </div>
         </div>
       </section>
 
-      <section class="card">
-        <details>
-          <summary>Datos para el comprobante PDF (opcional)</summary>
-          <div class="g">
-            <div class="w"><label for="nom">Persona trabajadora</label><input id="nom" type="text"></div>
-            <div><label for="pat">Patrono</label><input id="pat" type="text"></div>
-            <div><label for="car">Cargo desempeñado</label><input id="car" type="text"></div>
-            <div><label for="fter">Fecha de terminación</label><input id="fter" type="date"><small>Se usa para el
-                aguinaldo proporcional. Por defecto, hoy.</small></div>
-          </div>
-        </details>
-      </section>
-
-      <div class="btns"><button type="submit" class="p">Realizar cálculo</button><button type="reset" class="s"
-          id="rst">Limpiar</button></div>
       <p class="err" id="err" role="alert"></p>
+      <div class="btns"><button type="reset" class="s" id="rst">Limpiar</button><button type="submit" class="p">Realizar cálculo</button></div>
       </form>
       </div>
 
@@ -281,17 +441,16 @@
     });
 
     //CALC-START
-    const SMD = 13.44, SMM = 408.80; // Salario mínimo diario y mensual (comercio, servicios e industria, vigente desde jun. 2025)
     const salariosMinimos = {
-      'Comercio': 408.80,
-      'Industria': 408.80,
-      'Agricultura': 272.53,
-      'Servicio': 408.80,
-      'Ganadería': 272.53,
-      'Textil': 402.32,
-      'Servicios Domésticos': 408.80,
-      'Beneficio del café': 305.23,
-      'Trabajadores de Pesca': 272.53
+      'Comercio': { mensual: 408.80, diario: 13.44 },
+      'Industria': { mensual: 408.80, diario: 13.44 },
+      'Agricultura': { mensual: 272.53, diario: 8.96 },
+      'Servicio': { mensual: 408.80, diario: 13.44 },
+      'Ganadería': { mensual: 272.53, diario: 8.96 },
+      'Textil': { mensual: 402.32, diario: 13.23 },
+      'Servicios Domésticos': { mensual: 408.80, diario: 13.44 },
+      'Beneficio del café': { mensual: 305.23, diario: 10.04 },
+      'Trabajadores de Pesca': { mensual: 272.53, diario: 8.96 }
     };
     const r2 = x => Math.round((x + Number.EPSILON) * 100) / 100;
     function isr(b) { // Retención mensual, Art. 37 Ley de ISR
@@ -301,25 +460,60 @@
       return .30 * (b - 2038.10) + 288.57;
     }
     function calcular(d) {
-      const dia = d.sal / 30, hora = dia / 8, antig = d.anios + d.meses / 12, R = {};
-      R.vac = r2(dia * 15 * 1.3 * d.meses / 12); // Arts. 177 y 187 CT: 15 días + 30%
-      const dAg = antig < 1 ? 10 : antig < 3 ? 15 : antig < 10 ? 19 : 21; // Art. 198 CT
-      const t = d.fter, mesAnio = (t.getMonth()) + Math.min(t.getDate(), 30) / 30;
-      R.dAg = dAg; R.ag = r2(dia * dAg * Math.min(antig * 12, mesAnio) / 12); // Arts. 196-198 CT
+      const minimo = salariosMinimos[d.naturaleza] || salariosMinimos.Comercio;
+      const comisionDiaria = d.comisiones === 'si' && d.diasComision > 0 ? d.totalComisiones / d.diasComision : 0;
+      const dia = d.sal / 30 + comisionDiaria, hora = dia / 8, antig = d.diasServicio / 365, R = {};
+      const periodosVacacionalesPendientes = Math.max(0, d.periodosVacacionales - (d.pagoVacacionalAnterior === 'si' ? 1 : 0));
+      const aniversarioVacacional = agregarAnios(d.ingreso, anosCompletos(d.ingreso, d.fter));
+      const diasVacacionalesProporcionales = diasInclusivos(aniversarioVacacional, d.fter);
+      const valorPeriodoVacacional = dia * 15 * 1.3;
+      R.vacacionesCompletas = Array.from({ length: periodosVacacionalesPendientes }, (_, indice) => {
+        const inicio = agregarAnios(aniversarioVacacional, -(indice + 1));
+        const fin = sumarDias(agregarAnios(inicio, 1), -1);
+        return { inicio, fin, dias: diasInclusivos(inicio, fin), valor: r2(valorPeriodoVacacional) };
+      });
+      R.vacProporcionalDias = diasVacacionalesProporcionales;
+      R.vacProporcionalInicio = aniversarioVacacional;
+      R.vacProporcionalFin = d.fter;
+      R.vacProporcional = r2(valorPeriodoVacacional * diasVacacionalesProporcionales / 365);
+      R.vacCompleta = r2(R.vacacionesCompletas.reduce((total, periodo) => total + periodo.valor, 0));
+      R.vac = r2(R.vacCompleta + R.vacProporcional);
+      const anosServicio = anosCompletos(d.ingreso, d.fter);
+      const dAg = anosServicio < 3 ? 15 : anosServicio < 10 ? 19 : 21; // Arts. 197-198 CT
+      const inicioPeriodoAguinaldo = new Date(d.fter.getFullYear() - 1, 11, 12, 12);
+      const diasAguinaldoProporcional = d.fter < inicioPeriodoAguinaldo ? 0 :
+        diasInclusivos(inicioPeriodoAguinaldo > d.ingreso ? inicioPeriodoAguinaldo : d.ingreso, d.fter);
+      const inicioAguinaldoCompleto = new Date(d.fter.getFullYear() - 2, 11, 12, 12);
+      const finAguinaldoCompleto = new Date(d.fter.getFullYear() - 1, 11, 12, 12);
+      const diasAguinaldoCompleto = d.aguinaldoAnterior === 'si' || d.fter < finAguinaldoCompleto ? 0 :
+        diasInclusivos(inicioAguinaldoCompleto > d.ingreso ? inicioAguinaldoCompleto : d.ingreso, finAguinaldoCompleto);
+      const anosServicioAguinaldoCompleto = anosCompletos(d.ingreso, finAguinaldoCompleto);
+      const diasBaseAguinaldoCompleto = anosServicioAguinaldoCompleto < 3 ? 15 : anosServicioAguinaldoCompleto < 10 ? 19 : 21;
+      R.dAg = dAg;
+      R.agCompletoDias = diasAguinaldoCompleto;
+      R.dAgCompleto = diasBaseAguinaldoCompleto;
+      R.agCompletoInicio = inicioAguinaldoCompleto;
+      R.agCompletoFin = finAguinaldoCompleto;
+      R.agCompleto = r2(dia * diasBaseAguinaldoCompleto * Math.min(diasAguinaldoCompleto / 365, 1));
+      R.agProporcionalDias = diasAguinaldoProporcional;
+      R.agProporcionalInicio = inicioPeriodoAguinaldo > d.ingreso ? inicioPeriodoAguinaldo : d.ingreso;
+      R.agProporcionalFin = d.fter;
+      R.agProporcional = r2(dia * dAg * Math.min(diasAguinaldoProporcional / 365, 1));
+      R.ag = r2(R.agCompleto + R.agProporcional);
       R.ind = 0; R.comp = 0;
-      if (d.causa === 'despido') R.ind = r2(Math.min(dia, 4 * SMD) * 30 * antig); // Art. 58 CT, tope 4 salarios mínimos diarios
-      else if (antig >= 2) R.comp = r2(Math.min(d.sal, 2 * SMM) / 30 * 15 * antig); // Ley de Compensación Económica por Renuncia Voluntaria
+      if (d.causa === 'despido') R.ind = r2(Math.min(dia, 4 * minimo.diario) * 30 * antig); // Art. 58 CT
+      else if (anosServicio >= 2) R.comp = r2(Math.min(dia * 30, 2 * minimo.mensual) / 30 * 15 * antig); // Ley de Compensación Económica por Renuncia Voluntaria
       R.hd = r2(hora * 2 * d.hd);          // Art. 169 CT: recargo 100%
       R.hn = r2(hora * 1.25 * 2 * d.hn);     // Arts. 168 y 169 CT: hora nocturna (+25%) con recargo 100%
       R.as = r2(dia * 2 * d.as);           // Art. 192 CT: asueto, recargo 100%
       R.ds = r2(dia * 1.5 * d.ds);         // Arts. 175 y 176 CT: descanso, recargo 50%
       R.bruto = r2(R.vac + R.ag + R.ind + R.comp + R.hd + R.hn + R.as + R.ds);
-      R.grav = r2(R.vac + R.hd + R.hn + R.as + R.ds);
-      R.exento = r2(R.ind + R.comp + R.ag);
-      R.isss = r2(Math.min(R.grav, 1000) * .03);
-      R.afp = r2(R.grav * .0725);
-      R.isr = r2(isr(R.grav - R.isss - R.afp));
-      R.ded = r2(R.isss + R.afp + R.isr);
+      R.agExentoISR = d.fter.getFullYear() === 2026 ? Math.min(R.ag, 1500) : 0;
+      R.agGravableISR = r2(R.ag - R.agExentoISR);
+      R.grav = r2(R.vac + R.hd + R.hn + R.as + R.ds + R.agGravableISR);
+      R.exento = r2(R.ind + R.comp + R.agExentoISR);
+      R.isr = r2(isr(R.grav));
+      R.ded = R.isr;
       R.neto = r2(R.bruto - R.ded);
       return R;
     }
@@ -348,11 +542,44 @@
     const usd = n => '$' + n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
     $('naturaleza').addEventListener('change', () => {
       const salarioMinimo = salariosMinimos[$('naturaleza').value];
-      $('salarioMinimo').value = salarioMinimo ? `$${salarioMinimo.toFixed(2)} mensuales` : '';
+      $('salarioMinimo').value = salarioMinimo ? `$${salarioMinimo.mensual.toFixed(2)} mensuales` : '';
     });
 
     let last = null;
     const today = () => new Date().toISOString().slice(0, 10);
+    const fechaLocal = value => new Date(value + 'T12:00:00');
+    const sumarDias = (fecha, dias) => new Date(fecha.getFullYear(), fecha.getMonth(), fecha.getDate() + dias, 12);
+    const agregarAnios = (fecha, anios) => {
+      const anio = fecha.getFullYear() + anios;
+      const ultimoDiaMes = new Date(anio, fecha.getMonth() + 1, 0).getDate();
+      return new Date(anio, fecha.getMonth(), Math.min(fecha.getDate(), ultimoDiaMes), 12);
+    };
+    const diasInclusivos = (inicio, fin) => {
+      if (!inicio || !fin || fin < inicio) return 0;
+      const inicioUTC = Date.UTC(inicio.getFullYear(), inicio.getMonth(), inicio.getDate());
+      const finUTC = Date.UTC(fin.getFullYear(), fin.getMonth(), fin.getDate());
+      return Math.floor((finUTC - inicioUTC) / 86400000) + 1;
+    };
+    const anosCompletos = (inicio, fin) => {
+      let anios = fin.getFullYear() - inicio.getFullYear();
+      if (agregarAnios(inicio, anios) > fin) anios--;
+      return anios;
+    };
+    const formatoFechaCorta = fecha => fecha.toLocaleDateString('es-SV', {
+      day: '2-digit', month: '2-digit', year: 'numeric'
+    });
+    function actualizarPeriodoAguinaldoAnterior() {
+      const fechaReferencia = fechaLocal($('fter').value || today());
+      const inicio = new Date(fechaReferencia.getFullYear() - 2, 11, 12, 12);
+      const fin = new Date(fechaReferencia.getFullYear() - 1, 11, 12, 12);
+      $('periodoAguinaldoAnteriorTexto').textContent =
+        `Período anterior evaluado: ${formatoFechaCorta(inicio)} - ${formatoFechaCorta(fin)}.`;
+    }
+    const mesesEntreFechas = (inicio, fin) => {
+      let meses = (fin.getFullYear() - inicio.getFullYear()) * 12 + fin.getMonth() - inicio.getMonth();
+      if (fin.getDate() < inicio.getDate()) meses--;
+      return meses;
+    };
     const ubicaciones = {
       'Ahuachapán': {
         'Ahuachapán Norte': ['Atiquizaya', 'El Refugio', 'San Lorenzo', 'Turín'],
@@ -452,57 +679,151 @@
     });
 
     $('fter').value = today();
+    actualizarPeriodoAguinaldoAnterior();
+    function actualizarTablaComisiones() {
+      const fechaReferencia = fechaLocal($('fter').value || today());
+      const valoresExistentes = new Map(
+        [...$('comisionesRows').querySelectorAll('tr')].map(fila => [fila.dataset.periodo, {
+          dias: fila.querySelector('.commission-days').value,
+          monto: fila.querySelector('.commission-amount').value
+        }])
+      );
+      const filas = Array.from({ length: 6 }, (_, indice) => {
+        const mes = new Date(fechaReferencia.getFullYear(), fechaReferencia.getMonth() - 6 + indice, 1);
+        const periodo = `${mes.getFullYear()}-${String(mes.getMonth() + 1).padStart(2, '0')}`;
+        const etiquetaMes = `${String(mes.getMonth() + 1).padStart(2, '0')}/${mes.getFullYear()}`;
+        const valores = valoresExistentes.get(periodo) || { dias: '0', monto: '0.00' };
+        return `<tr data-periodo="${periodo}">
+          <td>${etiquetaMes}</td>
+          <td><input class="form-control commission-days" type="number" min="0" step="1" value="${valores.dias}" aria-label="Días trabajados en ${etiquetaMes}"></td>
+          <td><input class="form-control commission-amount" type="number" min="0" step="0.01" value="${valores.monto}" aria-label="Comisión de ${etiquetaMes}"></td>
+        </tr>`;
+      });
+      $('comisionesRows').innerHTML = filas.join('');
+      actualizarTotalesComisiones();
+    }
 
-    $('na').addEventListener('change', e => {
-      ['hd', 'hn', 'as', 'ds'].forEach(i => { $(i).disabled = e.target.checked; if (e.target.checked) $(i).value = 0; });
+    function actualizarTotalesComisiones() {
+      const dias = [...$('comisionesRows').querySelectorAll('.commission-days')]
+        .reduce((total, input) => total + (Number(input.value) || 0), 0);
+      const monto = [...$('comisionesRows').querySelectorAll('.commission-amount')]
+        .reduce((total, input) => total + (Number(input.value) || 0), 0);
+      $('comisionesDiasTotal').textContent = dias;
+      $('comisionesMontoTotal').textContent = `$${monto.toFixed(2)}`;
+    }
+
+    $('comisionesRows').addEventListener('input', actualizarTotalesComisiones);
+    $('comisionesSi').addEventListener('change', () => { $('comisionesPanel').hidden = false; });
+    $('comisionesNo').addEventListener('change', () => { $('comisionesPanel').hidden = true; });
+    $('fter').addEventListener('change', () => {
+      actualizarTablaComisiones();
+      actualizarPeriodoAguinaldoAnterior();
     });
-    $('rst').addEventListener('click', () => setTimeout(() => {
-      ['hd', 'hn', 'as', 'ds'].forEach(i => $(i).disabled = false); $('fter').value = today();
+    actualizarTablaComisiones();
+
+    $('causa').addEventListener('change', () => {
+      $('err').textContent = '';
+      $('out').innerHTML = '<p class="empty">Complete el formulario y presione «Realizar cálculo» para ver el desglose.</p>';
+      $('pdf').disabled = true;
+      last = null;
+    });
+
+    const camposExtras = ['hd', 'hn', 'as', 'ds'];
+    $('na')?.addEventListener('change', e => {
+      camposExtras.forEach(id => {
+        const campo = $(id);
+        if (!campo) return;
+        campo.disabled = e.target.checked;
+        if (e.target.checked) campo.value = 0;
+      });
+    });
+    $('f').addEventListener('reset', () => setTimeout(() => {
+      camposExtras.forEach(id => {
+        const campo = $(id);
+        if (campo) { campo.disabled = false; campo.value = 0; }
+      });
+      if ($('na')) $('na').checked = false;
+      $('fter').value = today();
+      actualizarPeriodoAguinaldoAnterior();
+      $('comisionesPanel').hidden = true;
+      actualizarTablaComisiones();
       $('out').innerHTML = '<p class="empty">Complete el formulario y presione «Realizar cálculo» para ver el desglose.</p>';
       $('pdf').disabled = true; $('err').textContent = ''; last = null;
     }, 0));
 
     $('f').addEventListener('submit', e => {
       e.preventDefault();
-      const v = i => $(i).value === '' ? NaN : Number($(i).value);
+      const v = id => {
+        const campo = $(id);
+        return !campo || campo.value === '' ? NaN : Number(campo.value);
+      };
+      const ingreso = $('fechaIngreso').value ? fechaLocal($('fechaIngreso').value) : null;
+      const fter = $('fter').value ? fechaLocal($('fter').value) : null;
+      const antiguedadMeses = ingreso && fter ? mesesEntreFechas(ingreso, fter) : NaN;
+      const entradasDiasComision = [...document.querySelectorAll('.commission-days')];
+      const entradasMontosComision = [...document.querySelectorAll('.commission-amount')];
+      const diasComision = entradasDiasComision.reduce((total, input) => total + (Number(input.value) || 0), 0);
+      const totalComisiones = entradasMontosComision.reduce((total, input) => total + (Number(input.value) || 0), 0);
       const d = {
-        sal: v('sal'), anios: v('anios'), meses: v('meses'), causa: $('causa').value,
+        sal: v('sal'), anios: Math.floor(antiguedadMeses / 12), meses: antiguedadMeses % 12,
+        diasServicio: ingreso && fter ? diasInclusivos(ingreso, fter) : NaN,
+        causa: $('causa').value, naturaleza: $('naturaleza').value,
+        periodosVacacionales: v('periodoVacacional'),
+        pagoVacacionalAnterior: document.querySelector('input[name="pagoVacacionalAnterior"]:checked')?.value,
+        aguinaldoAnterior: document.querySelector('input[name="aguinaldoAnterior"]:checked')?.value,
+        comisiones: document.querySelector('input[name="comisiones"]:checked')?.value,
+        diasComision, totalComisiones,
         hd: v('hd') || 0, hn: v('hn') || 0, as: v('as') || 0, ds: v('ds') || 0,
-        fter: new Date(($('fter').value || today()) + 'T12:00:00')
+        ingreso, fter
       };
       let m = '';
-      if (!(d.sal > 0)) m = 'Ingrese un ingreso mensual mayor que cero.';
-      else if (!Number.isInteger(d.anios) || d.anios < 0) m = 'Los años laborados deben ser un número entero (0 o más).';
-      else if (!Number.isInteger(d.meses) || d.meses < 0 || d.meses > 11) m = 'Los meses laborados deben ser un entero entre 0 y 11.';
-      else if (d.anios === 0 && d.meses === 0) m = 'La antigüedad debe ser de al menos un mes.';
-      else if (!d.causa) m = 'Seleccione el tipo de cierre de la relación laboral.';
+      if (!d.causa) m = 'Seleccione el motivo del cálculo.';
+      else if (!salariosMinimos[d.naturaleza]) m = 'Seleccione la naturaleza de la empresa.';
+      else if (!document.querySelector('input[name="medioTiempo"]:checked')) m = 'Indique si trabaja medio tiempo actualmente.';
+      else if (!ingreso || !fter) m = 'Ingrese la fecha de ingreso y el último día laborado.';
+      else if (Number.isNaN(antiguedadMeses) || antiguedadMeses < 0) m = 'La fecha de ingreso no puede ser posterior al último día laborado.';
+      else if (!(d.sal > 0)) m = 'Ingrese un salario mensual mayor que cero.';
+      else if (!Number.isInteger(d.periodosVacacionales) || d.periodosVacacionales < 0) m = 'Indique los períodos vacacionales completos pendientes.';
+      else if (!$('caracteristica').value) m = 'Seleccione la característica de la persona trabajadora.';
+      else if (!document.querySelector('input[name="pagoVacacionalAnterior"]:checked') ||
+        !document.querySelector('input[name="aguinaldoAnterior"]:checked') ||
+        !document.querySelector('input[name="comisiones"]:checked')) m = 'Complete las respuestas de beneficios adicionales.';
       else if ([d.hd, d.hn, d.as, d.ds].some(x => x < 0)) m = 'Las horas y los días no pueden ser negativos.';
+      else if (d.comisiones === 'si' && (entradasDiasComision.some(input => !Number.isInteger(Number(input.value)) || Number(input.value) < 0 || Number(input.value) > 31) ||
+        entradasMontosComision.some(input => !Number.isFinite(Number(input.value)) || Number(input.value) < 0))) m = 'Revise los días y montos ingresados para las comisiones.';
+      else if (d.comisiones === 'si' && d.totalComisiones > 0 && d.diasComision === 0) m = 'Ingrese los días trabajados para calcular el promedio de comisiones.';
+      else if (antiguedadMeses < 1) m = 'La antigüedad debe ser de al menos un mes.';
       $('err').textContent = m;
       if (m) { last = null; $('pdf').disabled = true; return; }
       const R = calcular(d); last = { d, R };
       const row = (a, b, s, c) => `<tr class="${c || ''}"><td>${a}${s ? `<small>${s}</small>` : ''}</td><td class="m">${b}</td></tr>`;
       let h = '<table>' +
-        row('Vacación proporcional', usd(R.vac), '15 días + 30% · Arts. 177 y 187 CT') +
-        row('Aguinaldo proporcional', usd(R.ag), R.dAg + ' días de salario · Arts. 196-198 CT') +
-        (d.causa === 'despido' ? row('Indemnización por despido injustificado', usd(R.ind), 'Art. 58 CT') :
-          row('Compensación económica por renuncia', usd(R.comp), d.anios + d.meses / 12 >= 2 ? '15 días por año de servicio' : 'Requiere 2 años o más de servicio')) +
+        (d.causa === 'despido' ? row('Indemnización por despido injustificado', usd(R.ind), `Art. 58 CT · ${d.diasServicio.toLocaleString('es-SV')} días de servicio`) :
+          row('Compensación económica por renuncia', usd(R.comp), anosCompletos(d.ingreso, d.fter) >= 2 ? '15 días por año de servicio' : 'Requiere 2 años o más de servicio')) +
+        row('Vacación proporcional', usd(R.vacProporcional), `${R.vacProporcionalDias} días · ${formatoFechaCorta(R.vacProporcionalInicio)} - ${formatoFechaCorta(R.vacProporcionalFin)} · Arts. 177 y 187 CT`) +
+        R.vacacionesCompletas.map(periodo => row('Vacación completa', usd(periodo.valor), `${periodo.dias} días · ${formatoFechaCorta(periodo.inicio)} - ${formatoFechaCorta(periodo.fin)} · Arts. 177 y 187 CT`)).join('') +
+        row('Aguinaldo completo', usd(R.agCompleto), `${R.agCompletoDias} días · ${formatoFechaCorta(R.agCompletoInicio)} - ${formatoFechaCorta(R.agCompletoFin)}${R.agCompletoDias ? '' : ' · Período anterior pagado'} · Arts. 196-198 CT`) +
+        row('Aguinaldo proporcional', usd(R.agProporcional), `${R.agProporcionalDias} días · ${formatoFechaCorta(R.agProporcionalInicio)} - ${formatoFechaCorta(R.agProporcionalFin)} · Art. 201 CT`) +
         row('Horas extras diurnas', usd(R.hd), 'Art. 169 CT') +
         row('Horas extras nocturnas', usd(R.hn), 'Arts. 168 y 169 CT') +
         row('Días de asueto laborados', usd(R.as), 'Art. 192 CT') +
         row('Días de descanso semanal laborados', usd(R.ds), 'Arts. 175 y 176 CT') +
         row('Total de la liquidación (bruto)', usd(R.bruto), '', 't') +
-        row('ISSS (trabajador)', '-' + usd(R.isss), '', 'd') + row('AFP (trabajador)', '-' + usd(R.afp), '', 'd') + row('Retención de ISR', '-' + usd(R.isr), '', 'd') +
+        row('Retención de ISR', '-' + usd(R.isr), '', 'd') +
         row('Monto neto a pagar', usd(R.neto), '', 'n') + '</table>';
-      $('out').innerHTML = h; $('pdf').disabled = false;
+      const notaAguinaldoISR = d.fter.getFullYear() === 2026 ?
+        `<p class="note">Exención transitoria de ISR sobre aguinaldo 2026: ${usd(R.agExentoISR)} exentos; excedente gravable: ${usd(R.agGravableISR)} (Decreto 673/2026 aprobado).</p>` : '';
+      const notaComisiones = d.comisiones === 'si' && d.diasComision > 0 ?
+        `<p class="note">Promedio diario de comisiones aplicado a la base salarial: ${usd(d.totalComisiones / d.diasComision)} (${usd(d.totalComisiones)} ÷ ${d.diasComision} días).</p>` : '';
+      $('out').innerHTML = h + notaAguinaldoISR + notaComisiones; $('pdf').disabled = false;
     });
 
     $('pdf').addEventListener('click', () => {
       if (!last) return;
       const { d, R } = last, { jsPDF } = window.jspdf, doc = new jsPDF({ unit: 'mm', format: 'letter' });
-      const W = 216, L = 18, Rr = W - 18, tf = d.fter;
+      const W = 216, L = 18, Rr = W - 18, tf = d.fter, ing = d.ingreso;
       const meses = (d.meses === 1 ? '1 mes' : d.meses + ' meses'), ant = d.anios + (d.anios === 1 ? ' año, ' : ' años, ') + meses;
       const fmtF = x => x.toLocaleDateString('es-SV', { day: '2-digit', month: 'long', year: 'numeric' });
-      const ing = new Date(tf); ing.setFullYear(ing.getFullYear() - d.anios); ing.setMonth(ing.getMonth() - d.meses);
       let y = 20;
       const H = (t) => { doc.setFont('helvetica', 'bold').setFontSize(11).setTextColor(24, 32, 82).text(t, L, y); y += 2; doc.setDrawColor(24, 32, 82).line(L, y, Rr, y); y += 6; doc.setTextColor(30).setFontSize(9.5); };
       const kv = (a, b, x) => { doc.setFont('helvetica', 'bold').text(a, x, y); doc.setFont('helvetica', 'normal').text(String(b), x + 38, y); };
@@ -510,15 +831,23 @@
       doc.setFont('helvetica', 'normal').setFontSize(10).setTextColor(90).text('Republica de El Salvador', W / 2, y, { align: 'center' }); y += 12;
       H('I. Datos de las partes');
       kv('Persona trabajadora', d.nomb || ($('nom').value || '-'), L); y += 6;
+      kv('DUI', $('dui').value || '-', L); y += 6;
       kv('Patrono', $('pat').value || '-', L); y += 6;
       kv('Cargo desempenado', $('car').value || '-', L); kv('Salario mensual', usd(d.sal), 110); y += 6;
+      if (d.comisiones === 'si' && d.diasComision > 0) {
+        kv('Promedio diario de comisiones', usd(d.totalComisiones / d.diasComision), L); y += 6;
+      }
       kv('Fecha de ingreso', fmtF(ing), L); kv('Fecha de terminacion', fmtF(tf), 110); y += 6;
       kv('Antiguedad reconocida', ant, L); y += 6;
       kv('Causa de terminacion', d.causa === 'despido' ? 'Despido sin causa justificada' : 'Renuncia voluntaria', L); y += 10;
       H('II. Desglose de prestaciones liquidadas');
-      const rows = [['Vacacion proporcional', 'Arts. 177 y 187 CT', R.vac], ['Aguinaldo proporcional', 'Arts. 196-198 CT', R.ag]];
-      if (d.causa === 'despido') rows.push(['Indemnizacion por despido injustificado', 'Art. 58 CT', R.ind]);
+      const rows = [];
+      if (d.causa === 'despido') rows.push(['Indemnizacion por despido injustificado (' + d.diasServicio + ' dias)', 'Art. 58 CT', R.ind]);
       else rows.push(['Compensacion economica por renuncia voluntaria', 'Ley de Compensacion Economica', R.comp]);
+      rows.push(['Vacacion proporcional (' + R.vacProporcionalDias + ' dias)', 'Arts. 177 y 187 CT', R.vacProporcional]);
+      R.vacacionesCompletas.forEach(periodo => rows.push(['Vacacion completa (' + periodo.dias + ' dias)', 'Arts. 177 y 187 CT', periodo.valor]));
+      rows.push(['Aguinaldo completo (' + R.agCompletoDias + ' dias)', 'Arts. 196-198 CT', R.agCompleto]);
+      rows.push(['Aguinaldo proporcional (' + R.agProporcionalDias + ' dias)', 'Art. 201 CT', R.agProporcional]);
       rows.push(['Horas extras diurnas', 'Art. 169 CT', R.hd], ['Horas extras nocturnas', 'Arts. 168 y 169 CT', R.hn], ['Dias de asueto laborados', 'Art. 192 CT', R.as], ['Dias de descanso semanal laborados', 'Arts. 175 y 176 CT', R.ds]);
       doc.setFont('helvetica', 'bold').text('Concepto', L, y).text('Base legal', 95, y).text('Monto', Rr, y, { align: 'right' }); y += 2; doc.setDrawColor(200).line(L, y, Rr, y); y += 5;
       doc.setFont('helvetica', 'normal');
@@ -526,7 +855,7 @@
       doc.setFont('helvetica', 'bold').line(L, y - 3, Rr, y - 3); doc.text('TOTAL DEVENGADO (BRUTO)', L, y + 1).text(usd(R.bruto), Rr, y + 1, { align: 'right' }); y += 11;
       H('III. Deducciones de ley y neto a pagar');
       doc.setFont('helvetica', 'normal').text('Remuneracion gravada: ' + usd(R.grav) + '. Monto exento de ISR y de cotizaciones: ' + usd(R.exento) + '.', L, y); y += 7;
-      [['Cotizacion ISSS (trabajador)', 'Reglamento del ISSS, Art. 29', R.isss], ['Cotizacion AFP (trabajador)', 'Ley del Sistema de Ahorro para Pensiones', R.afp], ['Retencion de ISR', 'Art. 37 Ley de ISR', R.isr]].forEach(r => {
+      [['Retencion de ISR', 'Art. 37 Ley de ISR', R.isr]].forEach(r => {
         doc.text(r[0], L, y).text(r[1], 95, y).text('-' + usd(r[2]), Rr, y, { align: 'right' }); y += 6;
       });
       doc.setFont('helvetica', 'bold').text('Total de deducciones', L, y).text('-' + usd(R.ded), Rr, y, { align: 'right' }); y += 8;
