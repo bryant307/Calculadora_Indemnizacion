@@ -263,7 +263,8 @@
                 <option value="2">2 PERIODOS (30 días)</option>
                 <option value="3">3 PERIODOS (45 días)</option>
               </select>
-              <div class="form-text"><i class="fa-solid fa-calendar-check"></i>El pago del último período se descuenta según su respuesta; el período actual se calcula proporcionalmente.</div>
+              <div class="form-text"><i class="fa-solid fa-calendar-check"></i>El pago del último período se descuenta
+                según su respuesta; el período actual se calcula proporcionalmente.</div>
             </div>
             <div class="col-md-6">
               <label for="sal" class="form-label"><i class="fa-solid fa-wallet"></i>Salario mensual ($) <span
@@ -378,13 +379,11 @@
             </div>
             <div class="col-md-6">
               <label for="dui" class="form-label">DUI</label>
-              <input id="dui" name="dui" class="form-control" type="text" inputmode="numeric"
-                placeholder="00000000-0">
+              <input id="dui" name="dui" class="form-control" type="text" inputmode="numeric" placeholder="00000000-0">
             </div>
             <div class="col-md-6">
               <label for="car" class="form-label">Cargo desempeñado</label>
-              <input id="car" name="car" class="form-control" type="text"
-                placeholder="Cargo de la persona trabajadora">
+              <input id="car" name="car" class="form-control" type="text" placeholder="Cargo de la persona trabajadora">
             </div>
             <div class="col-md-6">
               <label for="pat" class="form-label">Patrono o representante</label>
@@ -396,7 +395,8 @@
       </section>
 
       <p class="err" id="err" role="alert"></p>
-      <div class="btns"><button type="reset" class="s" id="rst">Limpiar</button><button type="submit" class="p">Realizar cálculo</button></div>
+      <div class="btns"><button type="reset" class="s" id="rst">Limpiar</button><button type="submit" class="p">Realizar
+          cálculo</button></div>
       </form>
       </div>
 
@@ -418,9 +418,12 @@
     <section id="vista-inicio" class="vista" hidden>
       <div class="home-shell">
         <section class="home-hero" aria-labelledby="homeTitle">
-          <img class="home-hero__image" src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&amp;fit=crop&amp;w=2200&amp;q=85" alt="Persona revisando documentos y anotaciones en una mesa de trabajo">
+          <img class="home-hero__image"
+            src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&amp;fit=crop&amp;w=2200&amp;q=85"
+            alt="Persona revisando documentos y anotaciones en una mesa de trabajo">
           <div class="home-hero__shade" aria-hidden="true"></div>
-          <div class="home-hero__meta"><i class="fa-solid fa-location-dot"></i> EL SALVADOR <span>·</span> DERECHO LABORAL</div>
+          <div class="home-hero__meta"><i class="fa-solid fa-location-dot"></i> EL SALVADOR <span>·</span> DERECHO
+            LABORAL</div>
           <div class="home-hero__content">
             <p class="home-hero__eyebrow">SISTEMA DE CÁLCULOS LABORALES</p>
             <h2 id="homeTitle">Tu trabajo merece<br>cuentas claras.</h2>
@@ -459,7 +462,8 @@
         </section>
         <div class="alert-info-custom">
           <i class="fa-solid fa-circle-info"></i>
-          Los resultados son estimaciones informativas; pueden variar según el contrato, la planilla y las circunstancias particulares. No sustituyen una revisión del Ministerio de Trabajo o asesoría profesional.
+          Los resultados son estimaciones informativas; pueden variar según el contrato, la planilla y las
+          circunstancias particulares. No sustituyen una revisión del Ministerio de Trabajo o asesoría profesional.
         </div>
       </div>
     </section>
@@ -474,7 +478,8 @@
           <div class="card-body p-4">
             <div class="row g-4">
               <div class="col-md-4">
-                <label for="vacagFechaIngreso" class="form-label"><i class="fa-solid fa-calendar-plus"></i>Fecha de ingreso <span class="req">(*)</span></label>
+                <label for="vacagFechaIngreso" class="form-label"><i class="fa-solid fa-calendar-plus"></i>Fecha de
+                  ingreso <span class="req">(*)</span></label>
                 <input id="vacagFechaIngreso" class="form-control" type="date" required>
                 <div class="form-text">Inicio de la relación laboral.</div>
               </div>
@@ -484,8 +489,10 @@
                 <div class="form-text">Se usa automáticamente la fecha actual.</div>
               </div>
               <div class="col-md-4">
-                <label for="vacagSalario" class="form-label"><i class="fa-solid fa-wallet"></i>Salario mensual ($) <span class="req">(*)</span></label>
-                <input id="vacagSalario" class="form-control" type="number" min="0.01" step="0.01" placeholder="0.00" required>
+                <label for="vacagSalario" class="form-label"><i class="fa-solid fa-wallet"></i>Salario mensual ($) <span
+                    class="req">(*)</span></label>
+                <input id="vacagSalario" class="form-control" type="number" min="0.01" step="0.01" placeholder="0.00"
+                  required>
                 <div class="form-text">Salario base mensual para ambos cálculos.</div>
               </div>
             </div>
@@ -499,7 +506,8 @@
           <div class="card-body p-4">
             <div class="row g-4">
               <div class="col-md-6">
-                <label for="vacagDiasVacacion" class="form-label">Período vacacional <span class="req">(*)</span></label>
+                <label for="vacagDiasVacacion" class="form-label">Período vacacional <span
+                    class="req">(*)</span></label>
                 <select id="vacagDiasVacacion" class="form-select">
                   <option value="15">1 período (15 días)</option>
                   <option value="10">2 períodos (10 días)</option>
@@ -508,7 +516,8 @@
                 <div class="form-text">Se aplica el 30% adicional sobre los días seleccionados.</div>
               </div>
               <div class="col-md-6 d-flex align-items-end">
-                <button type="button" id="calcularVacaciones" class="p"><i class="fa-solid fa-calculator"></i>Calcular vacaciones</button>
+                <button type="button" id="calcularVacaciones" class="p"><i class="fa-solid fa-calculator"></i>Calcular
+                  vacaciones</button>
               </div>
             </div>
             <p class="err" id="vacagErrorVacaciones" role="alert"></p>
@@ -524,12 +533,17 @@
           </div>
           <div class="card-body p-4">
             <ul class="mb-0">
-              <li>La vacación anual individual requiere un año continuo con el mismo empleador y al menos 200 días trabajados durante ese año (arts. 177 y 180 del Código de Trabajo).</li>
-              <li>El período anual es de 15 días remunerados, más un recargo del 30% sobre el salario correspondiente a esos días (art. 177).</li>
-              <li>El fraccionamiento requiere acuerdo: en dos períodos, cada uno debe durar al menos 10 días; en tres o más, cada período debe durar al menos 7 días (art. 189).</li>
-              <li>La persona empleadora debe notificar el período de descanso con 30 días de anticipación (art. 182).</li>
+              <li>La vacación anual individual requiere un año continuo con el mismo empleador y al menos 200 días
+                trabajados durante ese año (arts. 177 y 180 del Código de Trabajo).</li>
+              <li>El período anual es de 15 días remunerados, más un recargo del 30% sobre el salario correspondiente a
+                esos días (art. 177).</li>
+              <li>El fraccionamiento requiere acuerdo: en dos períodos, cada uno debe durar al menos 10 días; en tres o
+                más, cada período debe durar al menos 7 días (art. 189).</li>
+              <li>La persona empleadora debe notificar el período de descanso con 30 días de anticipación (art. 182).
+              </li>
             </ul>
-            <p class="form-text mt-3 mb-0">La calculadora ofrece una estimación; la programación y el disfrute de las vacaciones dependen de las condiciones legales y del acuerdo correspondiente.</p>
+            <p class="form-text mt-3 mb-0">La calculadora ofrece una estimación; la programación y el disfrute de las
+              vacaciones dependen de las condiciones legales y del acuerdo correspondiente.</p>
           </div>
         </section>
 
@@ -538,14 +552,17 @@
             <h2><i class="fa-solid fa-gift"></i>Cálculo de Aguinaldo</h2>
           </div>
           <div class="card-body p-4">
-            <button type="button" id="calcularAguinaldo" class="p"><i class="fa-solid fa-calculator"></i>Calcular aguinaldo</button>
+            <button type="button" id="calcularAguinaldo" class="p"><i class="fa-solid fa-calculator"></i>Calcular
+              aguinaldo</button>
             <p class="err" id="vacagErrorAguinaldo" role="alert"></p>
             <div id="vacagResultadoAguinaldo">
               <p class="empty">Completa la fecha de ingreso y el salario para calcular tu aguinaldo.</p>
             </div>
             <div class="alert-info-custom mt-3 mb-0">
               <i class="fa-solid fa-circle-info"></i>
-              La reforma de aguinaldo 2026 aprobada mantiene el 12 de diciembre como referencia. La Asamblea aún reporta pendiente su publicación material y entrada en vigencia; verifica el estado antes de usar el resultado para un pago real.
+              La reforma de aguinaldo 2026 aprobada mantiene el 12 de diciembre como referencia. La Asamblea aún reporta
+              pendiente su publicación material y entrada en vigencia; verifica el estado antes de usar el resultado
+              para un pago real.
             </div>
           </div>
         </section>
@@ -557,11 +574,15 @@
           <div class="card-body p-4">
             <ul class="mb-0">
               <li>Con menos de un año de servicio, el aguinaldo se calcula proporcionalmente al tiempo trabajado.</li>
-              <li>Al cumplir un año, corresponden 15 días de salario; de 3 a menos de 10 años, 19 días; y con 10 años o más, 21 días (arts. 197 y 198 del Código de Trabajo).</li>
-              <li>El 12 de diciembre es la fecha de referencia para determinar la antigüedad y el cálculo proporcional del aguinaldo.</li>
-              <li>Para 2026 se aprobó una exención de ISR de hasta $1,500 para el aguinaldo; su aplicación depende de la publicación y entrada en vigencia del decreto.</li>
+              <li>Al cumplir un año, corresponden 15 días de salario; de 3 a menos de 10 años, 19 días; y con 10 años o
+                más, 21 días (arts. 197 y 198 del Código de Trabajo).</li>
+              <li>El 12 de diciembre es la fecha de referencia para determinar la antigüedad y el cálculo proporcional
+                del aguinaldo.</li>
+              <li>Para 2026 se aprobó una exención de ISR de hasta $1,500 para el aguinaldo; su aplicación depende de la
+                publicación y entrada en vigencia del decreto.</li>
             </ul>
-            <p class="form-text mt-3 mb-0">La calculadora ofrece una estimación y no sustituye el cálculo de planilla ni la revisión de las condiciones particulares de trabajo.</p>
+            <p class="form-text mt-3 mb-0">La calculadora ofrece una estimación y no sustituye el cálculo de planilla ni
+              la revisión de las condiciones particulares de trabajo.</p>
           </div>
         </section>
 
@@ -582,12 +603,15 @@
             <div class="card-body p-4">
               <div class="row g-4 align-items-end">
                 <div class="col-md-4">
-                  <label for="salarioBrutoNeto" class="form-label"><i class="fa-solid fa-dollar-sign"></i>Salario nominal mensual ($) <span class="req">(*)</span></label>
-                  <input id="salarioBrutoNeto" class="form-control" type="number" min="0.01" step="0.01" placeholder="0.00" required>
+                  <label for="salarioBrutoNeto" class="form-label"><i class="fa-solid fa-dollar-sign"></i>Salario
+                    nominal mensual ($) <span class="req">(*)</span></label>
+                  <input id="salarioBrutoNeto" class="form-control" type="number" min="0.01" step="0.01"
+                    placeholder="0.00" required>
                   <div class="form-text">Salario base antes de descuentos y adicionales.</div>
                 </div>
                 <div class="col-md-4">
-                  <label for="frecuenciaPagoNeto" class="form-label">Período de pago <span class="req">(*)</span></label>
+                  <label for="frecuenciaPagoNeto" class="form-label">Período de pago <span
+                      class="req">(*)</span></label>
                   <select id="frecuenciaPagoNeto" class="form-select">
                     <option value="quincenal" selected>Quincenal (15 días)</option>
                     <option value="mensual">Mensual (30 días)</option>
@@ -606,7 +630,8 @@
                 <div class="col-md-6">
                   <label for="diasFeriadoNeto" class="form-label">Días feriados trabajados</label>
                   <input id="diasFeriadoNeto" class="form-control" type="number" min="0" step="1" value="0">
-                  <div class="form-text">La quincena ya incluye el salario ordinario; aquí se agrega un salario diario adicional por feriado (art. 192 CT).</div>
+                  <div class="form-text">La quincena ya incluye el salario ordinario; aquí se agrega un salario diario
+                    adicional por feriado (art. 192 CT).</div>
                 </div>
                 <div class="col-md-6">
                   <label for="horasPeriodoNeto" class="form-label">Horas trabajadas en el período</label>
@@ -640,9 +665,11 @@
                       <option value="monto">Monto ($)</option>
                       <option value="porcentaje">Porcentaje (%)</option>
                     </select>
-                    <input id="pensionAlimenticia" class="form-control" type="number" min="0" step="0.01" value="0" aria-describedby="pensionAlimenticiaNota">
+                    <input id="pensionAlimenticia" class="form-control" type="number" min="0" step="0.01" value="0"
+                      aria-describedby="pensionAlimenticiaNota">
                   </div>
-                  <div class="form-text" id="pensionAlimenticiaNota">Si eliges porcentaje, se aplica sobre el neto después de descuentos de ley.</div>
+                  <div class="form-text" id="pensionAlimenticiaNota">Si eliges porcentaje, se aplica sobre el neto
+                    después de descuentos de ley.</div>
                 </div>
                 <div class="col-md-6">
                   <label for="descuentoPrestamo" class="form-label">Cuota mensual de préstamo ($)</label>
@@ -656,11 +683,13 @@
                   <label for="otroDescuentoNombre" class="form-label">Otro descuento (opcional)</label>
                   <div class="input-group">
                     <input id="otroDescuentoNombre" class="form-control" type="text" placeholder="Concepto">
-                    <input id="otroDescuentoMonto" class="form-control" type="number" min="0" step="0.01" value="0" aria-label="Monto de otro descuento">
+                    <input id="otroDescuentoMonto" class="form-control" type="number" min="0" step="0.01" value="0"
+                      aria-label="Monto de otro descuento">
                   </div>
                 </div>
               </div>
-              <div class="form-text mt-3">Estos descuentos se restan después de ISSS, AFP e ISR; no modifican su cálculo.</div>
+              <div class="form-text mt-3">Estos descuentos se restan después de ISSS, AFP e ISR; no modifican su
+                cálculo.</div>
             </div>
           </section>
           <p class="err" id="salarioNetoError" role="alert"></p>
@@ -681,46 +710,49 @@
 
         <div class="alert-info-custom">
           <i class="fa-solid fa-circle-info"></i>
-          Estimación con la tabla de retención 2026 para el período seleccionado: ISSS 3% hasta una base mensual de $1,000, AFP 7.25% e ISR sobre la base después de cotizaciones. La nocturnidad se estima al 25%; feriados y nocturnidades se calculan sobre el salario nominal. No incluye comisiones u otros ingresos variables.
+          Estimación con la tabla de retención 2026 para el período seleccionado: ISSS 3% hasta una base mensual de
+          $1,000, AFP 7.25% e ISR sobre la base después de cotizaciones. La nocturnidad se estima al 25%; feriados y
+          nocturnidades se calculan sobre el salario nominal. No incluye comisiones u otros ingresos variables.
         </div>
       </div>
     </section>
   </main>
 
-      -->
-    <footer class="footer-minimal" role="contentinfo">
-        <div class="footer-minimal__container">
 
-            <p class="footer-minimal__copyright">
-                &copy; 2026 Bryan Enrique Torres - Universidad Gerardo Barrios 
-            </p>
+  <footer class="footer-minimal" role="contentinfo">
+    <div class="footer-minimal__container">
 
+      <p class="footer-minimal__copyright">
+        &copy; 2026 Bryan Enrique Torres Alvarez - Universidad Gerardo Barrios
+      </p>
 
-            <nav class="footer-minimal__nav" aria-label="Footer Social Media Links">
-                <ul>
-                   
-                    <li>
-                        <a href="#" aria-label="Our LinkedIn Profile">
-                            <!-- SVG icon for LinkedIn -->
-                            <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <title>LinkedIn</title>
-                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/>
-                            </svg>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" aria-label="Our GitHub Profile">
-                             <!-- SVG icon for GitHub -->
-                            <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <title>GitHub</title>
-                                <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
-                            </svg>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </footer>
+      <nav class="footer-minimal__nav" aria-label="Enlaces a redes profesionales">
+        <ul>
+          <li>
+            <a href="https://www.linkedin.com/in/bryan-torres-06309b382" target="_blank" rel="noopener noreferrer"
+              aria-label="Perfil de LinkedIn de Bryan Torres">
+              <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <title>LinkedIn</title>
+                <path
+                  d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z" />
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/bryant307" target="_blank" rel="noopener noreferrer"
+              aria-label="Perfil de GitHub de bryant307">
+              <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <title>GitHub</title>
+                <path
+                  d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+    </div>
+  </footer>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <script>
@@ -881,19 +913,19 @@
       }
 
       $('salarioNetoError').textContent = '';
-        const salarioPeriodo = frecuenciaPago === 'quincenal' ? salarioBruto / 2 : salarioBruto;
-        const salarioDiario = salarioBruto / 30;
-        const salarioHora = salarioDiario / 8;
-        const horasDiurnas = horasPeriodo - horasNocturnas - horasNocturnasFeriado;
-        const valorFeriados = r2(salarioDiario * diasFeriado);
-        const recargoNocturnidad = Math.trunc(salarioHora * 0.25 * horasNocturnas * 100) / 100;
-        const recargoNocturnidadFeriado = r2(salarioHora * 0.50 * horasNocturnasFeriado);
-        const salarioGravable = r2(salarioPeriodo + valorFeriados + recargoNocturnidad + recargoNocturnidadFeriado);
-        const topeISSSPeriodo = frecuenciaPago === 'quincenal' ? 500 : 1000;
-        const isss = r2(Math.min(salarioGravable, topeISSSPeriodo) * 0.03);
-        const afp = r2(salarioGravable * 0.0725);
-        const baseGravada = r2(salarioGravable - isss - afp);
-        const retencionISR = r2(isr(baseGravada, frecuenciaPago));
+      const salarioPeriodo = frecuenciaPago === 'quincenal' ? salarioBruto / 2 : salarioBruto;
+      const salarioDiario = salarioBruto / 30;
+      const salarioHora = salarioDiario / 8;
+      const horasDiurnas = horasPeriodo - horasNocturnas - horasNocturnasFeriado;
+      const valorFeriados = r2(salarioDiario * diasFeriado);
+      const recargoNocturnidad = Math.trunc(salarioHora * 0.25 * horasNocturnas * 100) / 100;
+      const recargoNocturnidadFeriado = r2(salarioHora * 0.50 * horasNocturnasFeriado);
+      const salarioGravable = r2(salarioPeriodo + valorFeriados + recargoNocturnidad + recargoNocturnidadFeriado);
+      const topeISSSPeriodo = frecuenciaPago === 'quincenal' ? 500 : 1000;
+      const isss = r2(Math.min(salarioGravable, topeISSSPeriodo) * 0.03);
+      const afp = r2(salarioGravable * 0.0725);
+      const baseGravada = r2(salarioGravable - isss - afp);
+      const retencionISR = r2(isr(baseGravada, frecuenciaPago));
       const deduccionesLey = r2(isss + afp + retencionISR);
       const netoLegal = r2(salarioGravable - deduccionesLey);
       const pensionAlimenticia = r2(pensionAlimenticiaTipo === 'porcentaje' ?
