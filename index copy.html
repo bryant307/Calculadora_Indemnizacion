@@ -636,22 +636,12 @@
                 <div class="col-md-6">
                   <label for="horasPeriodoNeto" class="form-label">Horas trabajadas en el período</label>
                   <input id="horasPeriodoNeto" class="form-control" type="number" min="0" step="0.5" value="0">
-                  <div class="form-text">Incluye todas las horas: ordinarias y extras, diurnas y nocturnas.</div>
-                </div>
-                <div class="col-md-6">
-                  <label for="horasExtrasNeto" class="form-label">De esas horas, ¿cuántas fueron horas extras?</label>
-                  <input id="horasExtrasNeto" class="form-control" type="number" min="0" step="0.5" value="0">
-                  <div class="form-text">Horas trabajadas por encima de la jornada ordinaria. Se pagan con 100% de recargo (art. 169 CT).</div>
-                </div>
-                <div class="col-md-6">
-                  <label for="horasExtrasNocturnasNeto" class="form-label">De las horas extras, ¿cuántas fueron nocturnas?</label>
-                  <input id="horasExtrasNocturnasNeto" class="form-control" type="number" min="0" step="0.5" value="0">
-                  <div class="form-text">Deben ser parte de las horas extras. Además del 100% de recargo llevan 25% por nocturnidad (arts. 168 y 169 CT).</div>
+                  <div class="form-text">Incluye las horas diurnas y nocturnas del período seleccionado.</div>
                 </div>
                 <div class="col-md-6">
                   <label for="horasNocturnasNeto" class="form-label">Horas nocturnas en jornada ordinaria</label>
                   <input id="horasNocturnasNeto" class="form-control" type="number" min="0" step="0.5" value="0">
-                  <div class="form-text">Solo horas ordinarias: no incluyas las horas extras nocturnas ni las nocturnas trabajadas en feriados.</div>
+                  <div class="form-text">No incluyas aquí las horas nocturnas trabajadas en feriados.</div>
                 </div>
                 <div class="col-md-6">
                   <label for="horasNocturnasFeriadoNeto" class="form-label">Horas nocturnas en días feriados</label>
@@ -721,8 +711,8 @@
         <div class="alert-info-custom">
           <i class="fa-solid fa-circle-info"></i>
           Estimación con la tabla de retención 2026 para el período seleccionado: ISSS 3% hasta una base mensual de
-          $1,000, AFP 7.25% e ISR sobre la base después de cotizaciones. La nocturnidad se estima al 25%; las horas extras se pagan con 100% de recargo (más 25% si son nocturnas); feriados,
-          nocturnidades y horas extras se calculan sobre el salario nominal. No incluye comisiones u otros ingresos variables.
+          $1,000, AFP 7.25% e ISR sobre la base después de cotizaciones. La nocturnidad se estima al 25%; feriados y
+          nocturnidades se calculan sobre el salario nominal. No incluye comisiones u otros ingresos variables.
         </div>
       </div>
     </section>
@@ -895,8 +885,6 @@
       const frecuenciaPago = $('frecuenciaPagoNeto').value;
       const horasPeriodo = Number($('horasPeriodoNeto').value) || 0;
       const diasFeriado = Number($('diasFeriadoNeto').value) || 0;
-      const horasExtras = Number($('horasExtrasNeto').value) || 0;
-      const horasExtrasNocturnas = Number($('horasExtrasNocturnasNeto').value) || 0;
       const horasNocturnas = Number($('horasNocturnasNeto').value) || 0;
       const horasNocturnasFeriado = Number($('horasNocturnasFeriadoNeto').value) || 0;
       const pensionAlimenticiaValor = Number($('pensionAlimenticia').value) || 0;
@@ -910,20 +898,12 @@
         return;
       }
       const diasPeriodo = frecuenciaPago === 'quincenal' ? 15 : 30;
-      if (!Number.isFinite(horasExtras) || horasExtras < 0 || horasExtras > horasPeriodo) {
-        $('salarioNetoError').textContent = 'Revisa las horas extras: no pueden ser negativas ni superar el total de horas trabajadas.';
-        return;
-      }
-      if (!Number.isFinite(horasExtrasNocturnas) || horasExtrasNocturnas < 0 || horasExtrasNocturnas > horasExtras) {
-        $('salarioNetoError').textContent = 'Revisa las horas extras nocturnas: no pueden superar el total de horas extras.';
-        return;
-      }
       if (!Number.isInteger(diasFeriado) || diasFeriado < 0 || diasFeriado > diasPeriodo ||
         !Number.isFinite(horasPeriodo) || horasPeriodo < 0 || horasPeriodo > diasPeriodo * 24 ||
         !Number.isFinite(horasNocturnas) || horasNocturnas < 0 ||
         !Number.isFinite(horasNocturnasFeriado) || horasNocturnasFeriado < 0 ||
-        horasNocturnas + horasNocturnasFeriado > horasPeriodo - horasExtras) {
-        $('salarioNetoError').textContent = 'Revisa las horas: las nocturnas ordinarias y las nocturnas en feriados, juntas, no pueden superar las horas ordinarias (total trabajado menos horas extras).';
+        horasNocturnas + horasNocturnasFeriado > horasPeriodo) {
+        $('salarioNetoError').textContent = 'Revisa las horas: las nocturnas ordinarias y las nocturnas en feriados juntas no pueden superar el total trabajado.';
         return;
       }
       if ([pensionAlimenticiaValor, descuentoPrestamo, descuentoFondo, otroDescuentoMonto].some(valor => !Number.isFinite(valor) || valor < 0) ||
@@ -936,14 +916,11 @@
       const salarioPeriodo = frecuenciaPago === 'quincenal' ? salarioBruto / 2 : salarioBruto;
       const salarioDiario = salarioBruto / 30;
       const salarioHora = salarioDiario / 8;
-      const horasExtrasDiurnas = horasExtras - horasExtrasNocturnas;
-      const horasDiurnas = horasPeriodo - horasExtras - horasNocturnas - horasNocturnasFeriado;
-      const pagoExtrasDiurnas = r2(salarioHora * 2 * horasExtrasDiurnas);          // Art. 169 CT: recargo 100%
-      const pagoExtrasNocturnas = r2(salarioHora * 1.25 * 2 * horasExtrasNocturnas); // Arts. 168 y 169 CT: +25% nocturnidad y recargo 100%
+      const horasDiurnas = horasPeriodo - horasNocturnas - horasNocturnasFeriado;
       const valorFeriados = r2(salarioDiario * diasFeriado);
       const recargoNocturnidad = Math.trunc(salarioHora * 0.25 * horasNocturnas * 100) / 100;
       const recargoNocturnidadFeriado = r2(salarioHora * 0.50 * horasNocturnasFeriado);
-      const salarioGravable = r2(salarioPeriodo + valorFeriados + recargoNocturnidad + recargoNocturnidadFeriado + pagoExtrasDiurnas + pagoExtrasNocturnas);
+      const salarioGravable = r2(salarioPeriodo + valorFeriados + recargoNocturnidad + recargoNocturnidadFeriado);
       const topeISSSPeriodo = frecuenciaPago === 'quincenal' ? 500 : 1000;
       const isss = r2(Math.min(salarioGravable, topeISSSPeriodo) * 0.03);
       const afp = r2(salarioGravable * 0.0725);
@@ -967,13 +944,9 @@
         ${fila(`Salario ordinario ${frecuenciaPago === 'quincenal' ? 'quincenal' : 'mensual'}`, salarioPeriodo, `Salario nominal mensual: ${usd(salarioBruto)}`)}
         ${diasFeriado > 0 ? fila(`Adicional por día feriado (${diasFeriado} × 1 salario diario)`, valorFeriados) : ''}
         ${filaHoras(`Horas trabajadas en ${frecuenciaPago === 'quincenal' ? 'la quincena' : 'el mes'}`, horasPeriodo)}
-        ${filaHoras('Horas ordinarias diurnas', horasDiurnas)}
-        ${filaHoras('Horas extras diurnas', horasExtrasDiurnas)}
-        ${filaHoras('Horas extras nocturnas', horasExtrasNocturnas)}
+        ${filaHoras('Horas diurnas', horasDiurnas)}
         ${filaHoras('Horas nocturnas ordinarias', horasNocturnas)}
         ${filaHoras('Horas nocturnas en feriados', horasNocturnasFeriado)}
-        ${pagoExtrasDiurnas > 0 ? fila('Pago de horas extras diurnas (recargo 100%)', pagoExtrasDiurnas) : ''}
-        ${pagoExtrasNocturnas > 0 ? fila('Pago de horas extras nocturnas (25% nocturnidad + recargo 100%)', pagoExtrasNocturnas) : ''}
         ${horasNocturnas > 0 ? fila('Recargo por nocturnidad (25%)', recargoNocturnidad) : ''}
         ${horasNocturnasFeriado > 0 ? fila('Recargo nocturno en feriados (50%)', recargoNocturnidadFeriado) : ''}
         ${fila('Total gravable del período', salarioGravable, 't')}
